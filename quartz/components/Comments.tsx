@@ -14,6 +14,7 @@ type Options = {
     strict?: boolean
     reactionsEnabled?: boolean
     inputPosition?: "top" | "bottom"
+    theme?: "Github Dark" | "Github Light" | "preferred_color_scheme"
   }
 }
 
@@ -34,7 +35,7 @@ export default ((opts: Options) => {
         data-strict={boolToStringBool(opts.options.strict ?? true)}
         data-reactions-enabled={boolToStringBool(opts.options.reactionsEnabled ?? true)}
         data-input-position={opts.options.inputPosition ?? "bottom"}
-        data-theme={opts.options.thema ?? "preferred_color_scheme"}
+        data-theme={opts.options.theme ?? "preferred_color_scheme"}
       ></div>
     )
   }

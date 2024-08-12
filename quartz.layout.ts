@@ -31,7 +31,7 @@ export const defaultContentPageLayout: PageLayout = {
         strict: true,
         reactionsEnabled: true,
         inputPosition: "bottom",
-        thema: "preferred_color_scheme",
+        theme: "preferred_color_scheme",
       },
     }),
   ],
