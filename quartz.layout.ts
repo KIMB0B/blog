@@ -20,6 +20,20 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.TagList(),
+    Component.Comments({
+      provider: "giscus",
+      options: {
+        repo: "KIMB0B/blog",
+        repoId: "R_kgDOMiduQg",
+        category: "General",
+        categoryId: "DIC_kwDOMiduQs4ChkKK",
+        mapping: "pathname",
+        strict: true,
+        reactionsEnabled: true,
+        inputPosition: "bottom",
+        thema: "preferred_color_scheme",
+      },
+    }),
   ],
   left: [
     Component.PageTitle(),
