@@ -12,7 +12,8 @@ const config: QuartzConfig = {
     enableSPA: true,
     enablePopovers: true,
     analytics: {
-      provider: "plausible",
+      provider: "google",
+      tagId: "G-CNYCR4FD3M",
     },
     locale: "ko-KR",
     baseUrl: "kimbob.pages.dev",
