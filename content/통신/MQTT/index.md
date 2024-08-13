@@ -1,3 +1,3 @@
 ---
-title: 통신/MQTT
+title: MQTT
 ---
