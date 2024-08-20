@@ -1,3 +1,8 @@
+---
+title: TypeScript에서 Decorator 사용해보기
+date: 2024-08-20T22:45:00
+---
+
 # 정의
 
 > TypeScript에서 실험적으로 제공하는 기능
