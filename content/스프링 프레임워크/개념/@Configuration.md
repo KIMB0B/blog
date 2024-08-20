@@ -1,5 +1,5 @@
 ---
-title: "@Configuration란?"
+title: "@Configuration이란?"
 date: 2024-08-20T23:23:00
 ---
 
