@@ -5,8 +5,7 @@ date: 2024-08-20T23:17:00
 
 # 정의
 
-> Dependency Injection 즉 의존성주입은 [[의존성 주입(DI)#강한 결합(Tight Coupling)|강한 결합]] 을 [[의존성 주입(DI)#느슨한 결합(Loose Coupling)|느슨한 결합]]으로 전환 시키는 방법
-> 제어의 역전(Inversion of Control)의 기술 중 하나
+> Dependency Injection 즉 의존성주입은 [[의존성 주입(DI)#강한 결합(Tight Coupling)|강한 결합]] 을 [[의존성 주입(DI)#느슨한 결합(Loose Coupling)|느슨한 결합]]으로 전환 시키는 방법<br>제어의 역전(Inversion of Control)의 기술 중 하나
 
 ---
 # 강한 결합(Tight Coupling)
