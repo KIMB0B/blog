@@ -1,3 +1,5 @@
+![image](https://res.cloudinary.com/practicaldev/image/fetch/s--J6qf2Ctw--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/gd97g4kdyk1bpdeyfqst.png)
+
 해당 설정 방법은 [[Yarn]] 패키지 매니저를 사용하여 진행하였습니다.
 만일 [[NPM]]을 통해 기본 설정을 원하신다면 NPM 글로 이동하여 NPM에 맞게 명령어를 치환하여 진행하여 주시면 됩니다.
 
