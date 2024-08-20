@@ -1,5 +1,5 @@
 ---
-title: "@Validated"
+title: "@Validated란?"
 date: 2024-08-20T23:43:00
 ---
 
