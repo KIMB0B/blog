@@ -3,7 +3,7 @@ title: TypeScript에서 Decorator 사용해보기
 date: 2024-08-20T22:45:00
 ---
 
-# 정의
+# Decorator 정의
 
 > TypeScript에서 실험적으로 제공하는 기능
 > 구조를 수정하지 않고 기존 객체에 새로운 기능을 추가할 수 있도록 하는 디자인 패턴

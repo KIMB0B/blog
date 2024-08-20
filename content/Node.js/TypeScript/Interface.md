@@ -3,7 +3,7 @@ title: TypeScript의 Interface 알아보기
 date: 2024-08-20T22:46:00
 ---
 
-# 정의
+# Interface 정의
 
 >TypeScript에서 Object(객체)의 타입을 지정할 때 사용함
 >상호간에 정의한 약속 혹은 규칙을 의미
