@@ -1,3 +1,8 @@
+---
+title: 의존성 주입이란?
+date: 2024-08-20T23:17:00
+---
+
 # 정의
 
 > Dependency Injection 즉 의존성주입은 [[의존성 주입(DI)#강한 결합(Tight Coupling)|강한 결합]] 을 [[의존성 주입(DI)#느슨한 결합(Loose Coupling)|느슨한 결합]]으로 전환 시키는 방법
@@ -14,8 +19,8 @@
 
 ### 형태
 
-[[강한 결합_JavaScript]]
-![[강한 결합 예시.png]]
+![image](https://gist.github.com/user-attachments/assets/1b9f675d-c047-46f7-b6e9-16d7578e03d4)
+(TypeScript에서의 예시)
 
 ---
 # 느슨한 결합(Loose Coupling)
@@ -27,5 +32,6 @@
 - 테스트 대역으로 치환하기가 쉬워 유닛 테스트가 용이함
 
 ### 형태
-[[느슨한 결합_JavaScript]]
-![[느슨한 결합.png]]
+
+![image](https://gist.github.com/user-attachments/assets/7d59949d-7c0b-4410-bfca-9230be74e19b)
+(TypeScript에서의 예시)

@@ -3,7 +3,7 @@ title: "@Autowired란?"
 date: 2024-08-20T23:06:00
 ---
 
-# 정의
+# @Autowired의 정의
 
 > Annotation을 통해 [[Bean]]으로 지정된 클래스들의 [[의존성 주입(DI)]]을 위해 사용하는 Annotation
 
@@ -93,8 +93,8 @@ public class OrderServiceImpl implements OrderService {
 
 # 추가 옵션
 
-@Autowired는 기본값으로 해당 어노테이션이 붙은 개체에게 필수적으로 의존성 주입이 되어야 함.
-필수적으로 주입되지 않아도 실행이 가능하게 만드는 옵션이 required = false임.
+@Autowired는 기본값으로 해당 어노테이션이 붙은 개체에게 필수적으로 의존성 주입이 되어야 합니다.
+필수적으로 주입되지 않아도 실행이 가능하게 만드는 옵션이 required = false입니다.
 ```java
 @Component
 public class OrderServiceImpl implements OrderService {
@@ -116,12 +116,13 @@ public class OrderServiceImpl implements OrderService {
 >@Autowired
  private DiscountPolicy discountPolicy
  
- DiscountPolicy 타입의 스프링 빈이 한개 이상이어서 어떤 빈을 주입하려는건지 정확하게 정할 수 없음
-## 1. 필드명 맞추기
-필드명을 주입받으려는 스프링 빈의 이름과 동일하게 지정해주면 매칭이 성공한다.
+-> DiscountPolicy 타입의 스프링 빈이 한개 이상이어서 어떤 빈을 주입하려는건지 정확하게 정할 수 없음
+## 해결 방법
+### 1. 필드명 맞추기
+필드명을 주입받으려는 스프링 빈의 이름과 동일하게 지정해주면 매칭이 성공합니다.
 ```java
  @Autowired
  private DiscountPolicy rateDiscountPolicy
 ```
-## 2. [[@Qualifier]] 사용
-## 3. [[@Primary ]] 사용
+### 2. [[@Qualifier]] 사용
+### 3. [[@Primary ]] 사용
