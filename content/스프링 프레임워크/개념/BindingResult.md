@@ -1,10 +1,15 @@
-# 정의
+---
+title: BindingResult란?
+date: 2024-08-21T13:46:00
+---
+
+# BindingResult의 정의
 
 > 사용자 입력의 데이터 바인딩 과정에서 발생하는 오류를 관리하고 추적하는 인터페이스
-> 이를 통해 입력 데이터의 유효성 검사 결과를 저장하고, 필요할 때 오류를 쉽게 처리할 수 있도록 도와줌
+> 이를 통해 입력 데이터의 유효성 검사 결과를 저장하고, 필요할 때 오류를 쉽게 처리할 수 있도록 도와줍니다.
 
 >[!warning] 주의사항
-> Controller의 함수의 매개변수로 들어가는 BindingResult는 [[@ModelAttribute]]이 붙은 매개변수 바로 뒤에 와야한다. 
+> Controller의 함수의 매개변수로 들어가는 BindingResult는 [[@ModelAttribute]]이 붙은 매개변수 바로 뒤에 와야 합니다. 
 > ex) public String addUser(@ModelAttribute User user, <u>BindingResult bindingResult</u>, ...) {...}
 
 # 오류 상황 추가
@@ -111,9 +116,9 @@ void rejectValue(
 bindingResult.rejectValue("price", "range", new Object[]{1000, 1000000}, null);
 ```
 >[!info] code를 축약할 수 있는 이유
->`errors.properties`에 <u>range.item.price=가격은 {0} ~ {1} 까지 허용합니다.</u> 라고 작성했을 때 code를 "range.item.price"가 아닌 "price"라고 축약하여 써도 잘 작동한다.
+>`errors.properties`에 <u>range.item.price=가격은 {0} ~ {1} 까지 허용합니다.</u> 라고 작성했을 때 code를 "range.item.price"가 아닌 "price"라고 축약하여 써도 잘 작동합니다.
 >
->그 이유는 작성한 코드 뒤에 자동으로 `.필드명.모델명`이 붙도록 하기 때문이다.
+>그 이유는 작성한 코드 뒤에 자동으로 `.필드명.모델명`이 붙도록 하기 때문입니다.
 >^9302a9
 
 ### 2. reject()

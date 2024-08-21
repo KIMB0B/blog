@@ -110,7 +110,8 @@ public String addItemV2(
 
 ### 객체 자체를 분리
 
-Groups보다 더 범용적으로 쓰는 방법. 데이터 객체 자체를 추가용, 수정용 등으로 따로 만듭니다.
+Groups보다 더 범용적으로 쓰는 방법입니다.
+데이터 객체 자체를 추가용, 수정용 등으로 따로 만듭니다.
 
 ##### 1. 객체 각각 생성
 ```java
@@ -151,7 +152,7 @@ public class ItemUpdateForm {
 	//수정에서는 수량은 자유롭게 변경할 수 있다. 
 	private Integer quantity;
 ```
-### 2. 분리 로직 Controller에 적용
+##### 2. 분리 로직 Controller에 적용
 ```java
 // 저장 로직에 추가 예시
 
@@ -168,10 +169,10 @@ public String addItemV2(
 }
 ```
 >[!note] 설명
->분리해서 만든 데이터 모델 타입으로 item을 파라미터로 추가함.
->코드 중간에 new Item();을 이용하여 기존의 Item타입으로 객체를 새로 만들어준 후 이용할 수 있음.
+>분리해서 만든 데이터 모델 타입으로 item을 파라미터로 추가합니다.
+>코드 중간에 new Item();을 이용하여 기존의 Item타입으로 객체를 새로 만들어준 후 이용할 수 있습니다.
 
 >[!warning] 주의
-`@ModelAttribute("item")` 에 `item` 이름을 넣어준 부분을 주의하자. 
-이것을 넣지 않으면 `ItemSaveForm` 의 경우 규칙에 의해 `itemSaveForm` 이라는 이름으로 MVC Model에 담기게 된다. 
-이렇게 되면 뷰 템플릿에서 접근하 는 `th:object` 이름도 함께 변경해주어야 한다.
+`@ModelAttribute("item")` 에 `item` 이름을 넣어준 부분을 주의합시다. 
+이것을 넣지 않으면 `ItemSaveForm` 의 경우 규칙에 의해 `itemSaveForm` 이라는 이름으로 MVC Model에 담기게 됩니다.
+이렇게 되면 뷰 템플릿에서 접근하 는 `th:object` 이름도 함께 변경해주어야 합니다.

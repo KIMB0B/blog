@@ -1,6 +1,11 @@
-# [[Model-View-Controller(MVC)]] 전체 구조
+---
+title: Spring의 MVC 패턴 알아보기
+date: 2024-08-21T14:07:00
+---
 
-![[Spring MVC 구조.png]]
+# Spring의 [[Model-View-Controller(MVC)]] 전체 구조
+
+![image](https://gist.github.com/user-attachments/assets/c49c10c0-7286-4efe-af87-c1a6afeaab0a)
 
 # 동작 순서
 
@@ -36,22 +41,22 @@ public class RequestHeaderController {
 ```
 > [!note] 설명
 > `HttpMethod`: 
-> HTTP 메서드를 조회한다.
+> HTTP 메서드를 조회합니다.
 > 
 > `Locale`: 
-> Locale 정보를 조회한다.  
+> Locale 정보를 조회합니다.  
 > 
 > `@RequestHeader MultiValueMap<String, String> headerMap`: 
-> 모든 HTTP 헤더를 MultiValueMap 형식으로 조회한다. 
+> 모든 HTTP 헤더를 MultiValueMap 형식으로 조회합니다. 
 > 
 >`@RequestHeader("host") String host`: 
->특정 HTTP 헤더를 조회한다. 
+>특정 HTTP 헤더를 조회합니다. 
 >속성
 >-필수 값 여부: `required`
 >-기본 값 속성: `defaultValue`  
 >
 >`@CookieValue(value = "myCookie", required = false) String cookie`: 
->특정 쿠키를 조회한다.
+>특정 쿠키를 조회합니다.
 >속성
 >-필수 값 여부: `required` 
 >-기본 값: `defaultValue`
@@ -59,9 +64,9 @@ public class RequestHeaderController {
 # 요청 데이터 조회
 ## 1. 파라미터 조회
 - ### [[@RequestParam]]
-	인자값으로 파라미터를 <span style="background:#fff88f">하나하나 변수로</span> 불러올 수 있음
+	인자값으로 파라미터를 <span style="background:#fff88f">하나하나 변수로</span> 불러올 수 있습니다.
 - ### [[@ModelAttribute]]
-	객체를 파라미터들의 형태와 동일하게 만들어 <span style="background:#fff88f">객체 클래스 형태</span>로 파라미터를 불러올 수 있음
+	객체를 파라미터들의 형태와 동일하게 만들어 <span style="background:#fff88f">객체 클래스 형태</span>로 파라미터를 불러올 수 있습니다.
 ## 2. JSON 조회
 - ### [[@RequestBody]] 사용
 
@@ -88,15 +93,14 @@ public String mappingPath(@PathVariable("userId") String data) {
 }
 ```
 >[!note] @PathVariable설명
->경로에 {} 부분으로 변수로 받을 부분을 지정하고 @PathVariable로 해당 경로에 들어온 값을 변수로 사용할 수 있음
+>경로에 {} 부분으로 변수로 받을 부분을 지정하고 @PathVariable로 해당 경로에 들어온 값을 변수로 사용할 수 있습니다.
 
 ```java
 @GetMapping("/mapping/{userId}")
 public String mappingPath(@PathVariable String userId) {
-
     log.info("mappingPath userId={}", userId);
     return "ok";
 }
 ```
 >[!note] 생략 설명
->변수명을 {}안에 넣은 값과 같은 값으로 지으면 @PathVariable의 인자값을 생략할 수 있음
+>변수명을 {}안에 넣은 값과 같은 값으로 지으면 @PathVariable의 인자값을 생략할 수 있습니다.

@@ -1,5 +1,10 @@
-# 정의
-> [[Servlet]]은 개발자가 HTTP 요청 메시지를 편리하게 사용할 수 있도록 개발자 대신에 HTTP 요청 메시지를 파싱하고, 그 결과를 `HttpServletRequest` 객체에 담아서 제공한다.
+---
+title: HttpServletRequest란?
+date: 2024-08-21T13:58:00
+---
+
+# HttpServletRequest의 정의
+> [[Servlet]]은 개발자가 HTTP 요청 메시지를 편리하게 사용할 수 있도록 개발자 대신에 HTTP 요청 메시지를 파싱하고, 그 결과를 `HttpServletRequest` 객체에 담아서 제공합니다.
 
 # HTTP 요청 메시지 조회
 
