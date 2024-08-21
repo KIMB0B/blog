@@ -5,8 +5,7 @@ date: 2024-08-21T12:31:00
 
 # Bean의 정의
 
-> Spring IoC(Inversion of Control) 컨테이너가 관리하는 객체입니다.
-> [[의존성 주입(DI)]]을 통해 외부에서 관리 및 주입이 가능합니다.
+> Spring IoC(Inversion of Control) 컨테이너가 관리하는 객체입니다.<br>[[의존성 주입(DI)]]을 통해 외부에서 관리 및 주입이 가능합니다.
 
 # 선언 방법
 
