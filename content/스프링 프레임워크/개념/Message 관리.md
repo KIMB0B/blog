@@ -31,7 +31,6 @@ spring.messages.basename=messages
 
 ![image](https://gist.github.com/user-attachments/assets/363b7b47-3532-40cd-a33e-afdde4c60442)
 
-
 # Message 파일 생성
 
 messages.properties에 저장하고 싶은 문구들을 <span style="background:#fff88f">코드=문구</span> 형태로 저장합니다.

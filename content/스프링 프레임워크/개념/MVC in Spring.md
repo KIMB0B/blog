@@ -14,10 +14,8 @@ date: 2024-08-21T14:07:00
 3. **핸들러 어댑터 실행**: 핸들러 어댑터를 실행한다.
 4. **핸들러 실행**: 핸들러 어댑터가 실제 핸들러를 실행한다.
 5. **ModelAndView 반환**: 핸들러 어댑터는 핸들러가 반환하는 정보를 ModelAndView로 **변환**해서 반환한다.
-6. **viewResolver 호출**: 뷰 리졸버를 찾고 실행한다.
-    JSP의 경우: `InternalResourceViewResolver` 가 자동 등록되고, 사용된다.
-7. **View 반환**: 뷰 리졸버는 뷰의 논리 이름을 물리 이름으로 바꾸고, 렌더링 역할을 담당하는 뷰 객체를 반환한다.
-    JSP의 경우 `InternalResourceView(JstlView)` 를 반환하는데, 내부에 `forward()` 로직이 있다.
+6. **viewResolver 호출**: 뷰 리졸버를 찾고 실행한다.<br>JSP의 경우: `InternalResourceViewResolver` 가 자동 등록되고, 사용된다.
+7. **View 반환**: 뷰 리졸버는 뷰의 논리 이름을 물리 이름으로 바꾸고, 렌더링 역할을 담당하는 뷰 객체를 반환한다.<br>JSP의 경우 `InternalResourceView(JstlView)` 를 반환하는데, 내부에 `forward()` 로직이 있다.
 8. **뷰 렌더링**: 뷰를 통해서 뷰를 렌더링 한다.
 
 # 경로 매핑
@@ -38,6 +36,7 @@ public class RequestHeaderController {
 		@CookieValue(value = "myCookie", required = false) String cookie
 	) {
 	}
+}
 ```
 > [!note] 설명
 > `HttpMethod`: 
@@ -50,16 +49,10 @@ public class RequestHeaderController {
 > 모든 HTTP 헤더를 MultiValueMap 형식으로 조회합니다. 
 > 
 >`@RequestHeader("host") String host`: 
->특정 HTTP 헤더를 조회합니다. 
->속성
->-필수 값 여부: `required`
->-기본 값 속성: `defaultValue`  
+>특정 HTTP 헤더를 조회합니다.<br>속성<br>-필수 값 여부: `required`<br>기본 값 속성: `defaultValue`  
 >
 >`@CookieValue(value = "myCookie", required = false) String cookie`: 
->특정 쿠키를 조회합니다.
->속성
->-필수 값 여부: `required` 
->-기본 값: `defaultValue`
+>특정 쿠키를 조회합니다.<br>속성<br>-필수 값 여부: `required`<br>-기본 값: `defaultValue`
 
 # 요청 데이터 조회
 ## 1. 파라미터 조회
