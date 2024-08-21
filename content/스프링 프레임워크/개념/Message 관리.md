@@ -28,6 +28,7 @@ spring.messages.basename=messages
 ```
 
 메시지 파일은 `src/main/resources/` 경로에 넣어주면 됩니다.
+
 ![image](https://gist.github.com/user-attachments/assets/363b7b47-3532-40cd-a33e-afdde4c60442)
 
 
