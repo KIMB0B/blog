@@ -1,10 +1,14 @@
-# 정의
+---
+title: ApplicationContext란?
+date: 2024-08-21T12:30:00
+---
 
-> [[Bean|Spring Bean]]을 관리하고 조회하는 Spring Container의 최상위 인터페이스인 BeanFactory라는 인터페이스의 기능을 모두 상속받아서 제공하는 역할을 함
-> 거기다가 추가적으로 편리한 부가기능을 더 제공함
+# ApplicationContext의 정의
+
+> [[Bean|Spring Bean]]을 관리하고 조회하는 Spring Container의 최상위 인터페이스인 BeanFactory라는 인터페이스의 기능을 모두 상속받아서 제공하는 역할을 합니다.<br>거기다가 추가적으로 편리한 부가기능을 더 제공합니다.
 
 # 구조
-![[ApplicationContext 구조.png]]
+![image](https://gist.github.com/user-attachments/assets/75beb71c-80ff-4bbb-821c-da8828bf308f)
 
 # 기능
 - **Bean 조회/관리 기능**

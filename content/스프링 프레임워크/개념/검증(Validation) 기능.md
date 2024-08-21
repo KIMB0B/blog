@@ -1,4 +1,9 @@
-# 정의
+---
+title: Spring의 검증(Validation) 기능
+date: 2024-08-21T12:21:00
+---
+
+# 검증 기능의 정의
 
 >클라이언트로부터 받은 데이터가 비즈니스 규칙을 만족하는지 확인하거나, 데이터가 일관성 있고 안정적인 상태를 유지할 수 있도록 보장해주는 기능
 
@@ -11,7 +16,7 @@
 
 # [[Message 관리|Message 기능]] 응용
 
-Message 기능을 사용하여 오류 메시지를 효과적으로 관리할 수 있음.
+Message 기능을 사용하여 오류 메시지를 효과적으로 관리할 수 있습니다.
 ### 1. 오류 Message 설정 파일 생성과 application 설정
 
  `src/main/resources/` 경로에 `errors.properties` 생성
@@ -39,7 +44,8 @@ bindingResult.reject("totalPriceMin", new Object[]{10000, resultPrice}, null);
 
 # 오류 Message 레벨 분류
 
-상세적으로 단계를 나눠서 오류 문구를 관리할 수 있음
+상세적으로 단계를 나눠서 오류 문구를 관리할 수 있습니다.
+예시)
 ```properties
 #==ObjectError==  
 #Level1  
@@ -74,7 +80,7 @@ max= {0} 까지 허용합니다.
 
 # 검증 로직 분리
 
-Validator 인터페이스를 구현한 검증 로직을 별도로 분리하여 관리 가능
+Validator 인터페이스를 구현한 검증 로직을 별도로 분리하여 관리가 가능합니다.
 ### Validator 인터페이스 구조
 ```java
 public interface Validator {
