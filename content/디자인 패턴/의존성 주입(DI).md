@@ -19,7 +19,7 @@ date: 2024-08-20T23:17:00
 ### 형태
 
 ![image](https://gist.github.com/user-attachments/assets/1b9f675d-c047-46f7-b6e9-16d7578e03d4)
-(TypeScript에서의 예시)
+(TypeScript 환경에서의 예시)
 
 ---
 # 느슨한 결합(Loose Coupling)
@@ -33,4 +33,4 @@ date: 2024-08-20T23:17:00
 ### 형태
 
 ![image](https://gist.github.com/user-attachments/assets/7d59949d-7c0b-4410-bfca-9230be74e19b)
-(TypeScript에서의 예시)
+(TypeScript 환경에서의 예시)
