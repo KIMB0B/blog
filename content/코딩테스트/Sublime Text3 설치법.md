@@ -6,8 +6,7 @@ date: 2024-08-24T01:55:00
 
 ![image](https://upload.wikimedia.org/wikipedia/en/d/d2/Sublime_Text_3_logo.png)
 
-간단한 코드를 실행하기에 좋은 매우 가벼운 IDE입니다.
-코딩테스트 공부를 하면서 무거운 프로그램을 짤 일은 없기 때문에 코딩테스트 공부에 매우 적합합니다!
+간단한 코드를 실행하기에 좋은 매우 가벼운 IDE입니다.<br>코딩테스트 공부를 하면서 무거운 프로그램을 짤 일은 없기 때문에 코딩테스트 공부에 매우 적합합니다!
 
 ---
 # 설치 방법
@@ -30,7 +29,7 @@ DMG 파일을 실행하여 위와 같은 화면이 나오면 Sublime Text 아이
 
 (여기있습니다)
 
-### Package Control 다운받기
+## Package Control 다운받기
 
 `Cmd + Shift + P` 를 눌러줍니다.
 그리고 입력창에 Install Package Control를 입력해서 엔터쳐줍시다.
@@ -39,12 +38,12 @@ DMG 파일을 실행하여 위와 같은 화면이 나오면 Sublime Text 아이
 그리고 다시 `Cmd + Shift + P` 를 눌러줍니다.
 이번엔 Package Control: Install Package를 검색해서 엔터를 눌러주고, 위와 같이 조금 기다리고 OK를 눌러줍시다
 
-### Colorsublime 다운받기
+## Colorsublime 다운받기
 
 또 다시 `Cmd + Shift + P` 를 눌러주고 다시 한번 Package Control: Install Package를 검색해서 엔터를 쳐줍시다.
 그럼 이번엔 뭔가 검색할 수 있는 것이 나오는데, Colorsublime을 검색해서 다운받아줍시다.
 
-### 테마 적용하기
+## 테마 적용하기
 
 이젠 마지막으로 `Cmd + Shift + P` 를 눌러주고 Colorsublime: Install Theme를 검색해서 엔터를 쳐줍시다.
 그럼 다양한 테마가 나오게 되는데 저는 1337 테마로 진행하겠습니다.
@@ -55,7 +54,7 @@ DMG 파일을 실행하여 위와 같은 화면이 나오면 Sublime Text 아이
 
 # 백준 환경 Build 시스템 추가
 
-### 파일 기본 환경 구성
+## 파일 기본 환경 구성
 
 백준의 문제는 입력값이 있고 이를 input()을 통해 가져와서 문제를 풀게 되어있습니다.
 
@@ -67,7 +66,7 @@ DMG 파일을 실행하여 위와 같은 화면이 나오면 Sublime Text 아이
 
 그리고 test.py가 실행될 때 입력을 input.txt에서 받도록 Build 시스템을 작성해서 저장해봅시다.
 
-### Build System 생성
+## Build System 생성
 
 상위에서 `Tools -> Build System -> New Build System...`을 클릭합니다.
 
@@ -98,13 +97,13 @@ DMG 파일을 실행하여 위와 같은 화면이 나오면 Sublime Text 아이
 
 # 잘 구성됐나 테스트해보기
 
-### 파일 두개 한번에 열기
+## 파일 두개 한번에 열기
 
 저희는 test.py와 input.txt를 한번에 열어야 합니다. 이럴 때 `Cmd + Opt + 2`를 눌러 창을 2개를 만들 수 있습니다. 그래서 한쪽에는 python파일, 다른 한쪽에는 input파일을 엽니다.
 
 ![image](https://gist.github.com/user-attachments/assets/0b805b9c-9b1c-469e-80da-235c19ec5d94)
 
-### 실행시켜보기
+## 실행시켜보기
 
 test.py와 input.txt를 각각 아래와 같이 작성해봅시다.
 
