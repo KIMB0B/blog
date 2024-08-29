@@ -43,7 +43,7 @@ getSession()의 내부에는 boolean타입의 `create` 옵션이 있습니다.<b
 - `request.getSession(false)`
 	- 세션이 있으면 기존 세션을 반환합니다.  
 	- 세션이 없으면 새로운 세션을 생성하지 않습니다. 
-	`null` 을 반환합니다.
+	- `null` 을 반환합니다.
 
 ---
 
