@@ -5,8 +5,7 @@ date: 2024-08-29T11:30:00
 
 # 세션이란?
 
-<img width="713" alt="image" src="https://gist.github.com/user-attachments/assets/c91fdd1b-832a-4da4-8bce-bfaaf91c1f57">
-로그인을 예시로 들면 사용자의 ID값 자체를 쿠키에 저장해버리면 보안이 취약해집니다.
+<img width="713" alt="image" src="https://gist.github.com/user-attachments/assets/c91fdd1b-832a-4da4-8bce-bfaaf91c1f57"><br>로그인을 예시로 들면 사용자의 ID값 자체를 쿠키에 저장해버리면 보안이 취약해집니다.
 이를 보완하기 위해 브라우저쪽에서 저장되어있는 쿠키 저장소와는 비슷하지만 다르게 서버쪽에서 저장되는 Key-Value타입의 저장공간을 **세션(Session)** 이라고 부릅니다.
 
 사용자의 ID값은 세션 저장소의 value로 저장이 되고, 이에 대해 랜덤하게 생성된 Session ID값을 쿠키 저장소에서 저장되게 함으로써 쿠키 저장소에는 사용자에 대한 직접적인 정보를 저장하지 않도록 하였습니다.
@@ -42,8 +41,8 @@ getSession()의 내부에는 boolean타입의 `create` 옵션이 있습니다.<b
 	세션이 있으면 기존 세션을 반환합니다.
 	세션이 없으면 새로운 세션을 생성해서 반환합니다. 
 - `request.getSession(false)`
-	세션이 있으면 기존 세션을 반환한다.  
-	세션이 없으면 새로운 세션을 생성하지 않는다. `null` 을 반환한다.
+	세션이 있으면 기존 세션을 반환합니다.  
+	세션이 없으면 새로운 세션을 생성하지 않는다. `null` 을 반환합니다..
 
 ---
 
