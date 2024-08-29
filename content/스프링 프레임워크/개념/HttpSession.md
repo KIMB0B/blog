@@ -38,11 +38,11 @@ public String login(..., HttpServletRequest request) {
 getSession()의 내부에는 boolean타입의 `create` 옵션이 있습니다.<br>기본값은 true이기 때문에 아무 값도 안넣으면 기본적으로 true방식으로 작동합니다.
 
 - `request.getSession(true)` **<-기본값**
-	세션이 있으면 기존 세션을 반환합니다.
-	세션이 없으면 새로운 세션을 생성해서 반환합니다. 
+	- 세션이 있으면 기존 세션을 반환합니다.
+	- 세션이 없으면 새로운 세션을 생성해서 반환합니다. 
 - `request.getSession(false)`
-	세션이 있으면 기존 세션을 반환합니다.  
-	세션이 없으면 새로운 세션을 생성하지 않습니다. 
+	- 세션이 있으면 기존 세션을 반환합니다.  
+	- 세션이 없으면 새로운 세션을 생성하지 않습니다. 
 	`null` 을 반환합니다.
 
 ---
