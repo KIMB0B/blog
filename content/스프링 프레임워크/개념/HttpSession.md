@@ -47,10 +47,47 @@ getSession()의 내부에는 boolean타입의 `create` 옵션이 있습니다.<b
 
 ---
 
-# 데이터 보관과 불러오기
+# HttpSession에 데이터 보관과 불러오기
 
 ## 데이터 보관
 
 `setAttribute()`을 사용하면 데이터를 보관하는 것이 가능합니다.<br>첫 번째 인자로 key값을, 두번째 인자로 value값을 넣으면 됩니다.
 
 ### 사용 예시
+```java
+public String login(..., HttpServletRequest request) {
+	...
+	
+	HttpSession session = request.getSession();
+	
+	Member memberA = new Member();
+	session.setAttribute("loginMember", memberA);
+	
+	...
+}
+```
+loginMember라는 이름으로 memberA의 정보를 session 공간에 저장하게 됩니다.
+
+## 데이터 불러오기
+
+`getAttribute()`를 사용하여 데이터를 불러오는 것이 가능합니다.
+인자로 session의 key값을 넣어주면 됩니다.
+
+### 사용 예시
+```java
+public String home(HttpServletRequest request, ...) {
+	...
+	
+	HttpSession session = request.getSession(false);
+	Memeber memberA = (Member)session.getAttribute("loginMember");
+	
+	...
+}
+```
+loginMember가 key값인 데이터를 session에서 가져와서 Member형으로 형변환하여 가져온 예시입니다.
+
+### Spring에서 더 간단하게 불러오기
+[[@SessionAttribute]]를 사용하여 더욱 간단하게 불러올 수 있습니다.
+자세한 내용은 [[@SessionAttribute]]에서 확인할 수 있습니다.
+
+---
