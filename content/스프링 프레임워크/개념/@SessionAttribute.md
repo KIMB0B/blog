@@ -12,7 +12,6 @@ date: 2024-08-29T23:08:00
 ```java
 public String home(
 	@SessionAttribute(name = "loginMember", required = false) Member loginMember,
-	HttpServletRequest request,
 	...) {
 	
 	...
