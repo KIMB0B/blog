@@ -91,3 +91,72 @@ loginMember가 key값인 데이터를 session에서 가져와서 Member형으로
 자세한 내용은 [[@SessionAttribute]]에서 확인할 수 있습니다.
 
 ---
+
+# TrackingModes
+
+JSession을 처음 할당하게 되면 사이트 URL에 jsessionid를 포함하고 있는 것을 확인하실 수 있습니다.<br>예시) ` http://localhost:8080/;jsessionid=F59911518B921DF62D09F0DF8F83F872`
+
+이 이유는 만약 쿠키를 지원하지 않는 환경일 수도 있기 때문에 HttpSession으로 세션을 만들면 jsession의 id를 url에도 저장하게 됩니다.
+
+만일 url 전달 방식을 사용하지 않고 무조건 cookie를 통해 세션을 유지하고 싶으면 `application.properties`에 해당 옵션을 추가하면 됩니다.
+```properties
+# application.properties
+server.servlet.session.tracking-modes=cookie
+```
+
+---
+
+# 세션 정보 확인하기
+
+```java
+public String sessionInfo(HttpServletRequest request) {
+	
+	// 세션에 저장된 데이터를 출력
+    HttpSession session = request.getSession(false);
+	session.getAttributeNames().asIterator().forEachRemaining(name -> 
+	    log.info("session name={}, value={}", name, session.getAttribute(name))
+	);
+	
+    log.info("sessionId={}", session.getId());
+    log.info("maxInactiveInterval={}", session.getMaxInactiveInterval());
+    log.info("creationTime={}", new Date(session.getCreationTime()));
+    log.info("lastAccessedTime={}", new Date(session.getLastAccessedTime()));
+    log.info("isNew={}", session.isNew());
+}
+```
+
+- **`sessionId`** : 세션ID, `JSESSIONID` 의 값입니다. 예) `34B14F008AA3527C9F8ED620EFD7A4E1`
+- **`maxInactiveInterval`** : 세션의 유효 시간입니다. 예) 1800초, (30분)  
+- **`creationTime`** : 세션을 생성한 일시입니다.
+- **`lastAccessedTime`** : 세션과 연결된 사용자가 최근에 서버에 접근한 시간, 클라이언트에서 서버로 `sessionId`(`JSESSIONID`)를 요청한 경우에 갱신됩니다.  
+- **`isNew`** : 새로 생성된 세션인지, 아니면 이미 과거에 만들어졌고, 클라이언트에서 서버로 `sessionId` (`JSESSIONID`)를 요청해서 조회된 세션인지 여부를 알려줍니다.
+
+---
+
+# 세션 타임아웃 설정
+
+## 타임아웃을 설정해야 하는 이유
+
+HTTP는 비 연결성(ConnectionLess) 이므로 서버 입장에서는 해당 사용자가 웹 브라우저를 종료한 것인지 아닌지를 인식할 수 없습니다. 따라서 서버에서 세션 데이터를 언제 삭제해야 하는지 판단하기가 어렵습니다.
+
+이럴 때 세션을 무한정 보관하면 아래와 같은 문제가 발생할 수 있습니다.
+- 세션과 관련된 쿠키(`JSESSIONID`)를 탈취 당했을 경우 오랜 시간이 지나도 해당 쿠키로 악의적인 요청을 할 수 있게 됩니다.  
+- 세션은 기본적으로 메모리에 생성됩니다.메모리의 크기는 무한하지 않기 때문에 세션이 계속 생성되고 사라지지 않으면 메모리가 부족해집니다.
+
+그래서 HttpSession은 개발자가 설정해놓은 타임아웃 시간이 될 때 까지 사용자가 아무런 요청을 보내지 않으면 세션을 삭제하는 방식으로 세션을 종료합니다.
+
+## 스프링 설정파일에서 설정
+
+> 분 단위로 설정해야 합니다. (아래는 60분)
+```properties
+# application.properties
+
+server.servlet.session.timeout=60
+```
+
+## 코드에서 특정 세션 단위로 시간 설정
+
+> 초단위로 설정해야 합니다. (아래는 1800초 = 30분)
+```java
+session.setMaxInactiveInterval(1800);
+```
