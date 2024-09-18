@@ -1,6 +1,6 @@
 ---
 title: "@ExceptionHandler란?"
-date: 2024-09-17T00:59:00
+date: 2024-09-19T03:43:00
 ---
 > [[HandlerExceptionResolver]]는 직접 구현하기 까다롭기도 하고, 굳이 ModelAndView를 반환하는 방식이라 API 응답에는 유용하지 않은 과정이었습니다.<br>또한 같은 종류의 Exception이라 하더라도 다른 Controller에 따라 처리 방법을 다르게 하고 싶어도 [[HandlerExceptionResolver]]에서는 불가능했습니다.<br>이런 애로사항을 @ExceptionHandler를 사용함으로써 해결할 수 있습니다.
 
