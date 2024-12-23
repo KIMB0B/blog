@@ -16,7 +16,7 @@ const config: QuartzConfig = {
       tagId: "G-CNYCR4FD3M",
     },
     locale: "ko-KR",
-    baseUrl: "kimbob.pages.dev",
+    baseUrl: "https://kimbob.pages.dev",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "created",
     theme: {
