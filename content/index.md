@@ -26,4 +26,4 @@ date: 2024-08-14T01:24:00
 ## 🗃️ 주인장이 만든 프로젝트
 
 - [[자취생 커뮤니티|(NestJS, GraphQL) 자취생 커뮤니티 웹사이트 프로젝트]]
-- [[content/내 프로젝트/와글/index|(Spring Boot, RestAPI) 팀 프로젝트 팀원 모집 웹사이트 프로젝트 "와글"]]
+- [[내 프로젝트/와글/index|(Spring Boot, RestAPI) 팀 프로젝트 팀원 모집 웹사이트 프로젝트 "와글"]]
