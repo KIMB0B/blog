@@ -50,7 +50,7 @@ Content-Type: image/jpeg
 
 # Spring에서 Multipart 사용
 
-# 1. Upload
+## 1. Upload
 
 ```java
 @PostMapping("/upload")
@@ -69,7 +69,7 @@ public String uploadFile(@RequestParam MultipartFile file, HttpServletRequest re
 - `getOriginalFilename()` : 업로드한 파일명을 가져옴
 - `transferTo()` : 해당 경로로 파일 저장
 
-# 2. View
+## 2. View
 
 \[image를 UrlResource로 Return해주는 API 구현]
 ```java
@@ -90,7 +90,7 @@ public class ItemController {
 <img th:each="imageFile : ${item.imageFiles}" th:src="|/images/${imageFile.getStoreFileName()}|" />
 ```
 
-# 3. Download
+## 3. Download
 
 ```java
 @GetMapping("/attach/{itemId}")
