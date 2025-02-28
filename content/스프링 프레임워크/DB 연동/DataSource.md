@@ -55,6 +55,7 @@ void dataSourceConnectionPool() throws SQLException, InterruptedException {
 ### 상태 확인
 
 위 코드에서 생성된 MyPool의 로그를 보면 아래와 같은 상태를 확인할 수 있습니다.
+
 `MyPool - After adding stats (total=10, active=2, idle=8, waiting=0)`
 
 총 10개의 커넥션이 있는 Pool Size를 설정하고, con1과 con2를 통해 두개의 커넥션을 사용하고 있으니 active가 2, idle이 8로 나타납니다.
@@ -63,6 +64,7 @@ void dataSourceConnectionPool() throws SQLException, InterruptedException {
 
 size가 현재 10인 MyPool에서 getConnection()을 11번 해서 사이즈를 초과하면 어떻게 될까요?
 로그를 확인하면 아래와 같습니다.
+
 `MyPool - After adding stats (total=10, active=10, idle=0, waiting=1)`
 
 10개만 준비되어있는 커넥션 풀에서 초과해서 커넥션을 호출한 하나는 waiting상태가 되어 다른 connection이 반환되는 것을 기다립니다. 반환된 후 커넥션을 사용 가능합니다.
