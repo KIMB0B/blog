@@ -1,3 +1,3 @@
 ---
-title: 📁DB 연동
+title: 📁 DB 연동
 ---
