@@ -194,14 +194,14 @@ public class AfterService {
         Connection con = dataSource.getConnection();  
         try {  
             con.setAutoCommit(false);  
-		//************기존 로직************//
+			//************기존 로직************//
             Member fromMember = repository.findById(con, fromId);  
 			Member toMember = repository.findById(con, toId);  
   
 			repository.update(con, fromId, fromMember.getMoney() - money);  
 			validation(toMember);  
 			repository.update(con, toId, toMember.getMoney() + money);
-		//************기존 로직************//
+			//************기존 로직************//
             con.commit();
         } catch (Exception e) {  
             con.rollback();  
