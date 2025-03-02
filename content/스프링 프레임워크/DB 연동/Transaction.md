@@ -1,5 +1,5 @@
 ---
-title: Spring에서의 DB Transaction
+title: Transaction이란?
 date: 2025-03-02T00:36:00
 ---
 # Transaction의 정의
