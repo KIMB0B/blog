@@ -328,7 +328,7 @@ spring.datasource.password=
 ```java
 @Configuration
 @RequiredArgsConstructor
-public class TestConfig {
+public class Config {
 	
 	private final DataSource dataSource;
 	
