@@ -277,7 +277,7 @@ public class Repository {
 
 ## JdbcTemplate의 단점
 
-예를들어 조회 서비스를 만드는데 money에 값이 없으면 그냥 모든 member를 보여주고, money에 값이 있으면 해당 money보다 더 많이 갖고있는 사용자를 보여준다고 할 때, money에 값이 없는 경우의 쿼리는 아래와 같습니다.
+예를들어 조회 서비스를 만드는데 **money에 값이 없으면 그냥 모든 member를 보여주고, money에 값이 있으면 해당 money보다 더 많이 갖고있는 사용자를 보여준다**고 할 때, money에 값이 없는 경우의 쿼리는 아래와 같습니다.
 ```sql
 SELECT * FROM MEMBER
 ```
