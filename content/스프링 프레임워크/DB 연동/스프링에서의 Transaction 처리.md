@@ -348,6 +348,193 @@ public class Config {
 >
 >그리고 DataSource를 통해 자동으로 생성될 PlatformTransactionManager를 따로 또 생성하지 않았습니다.
 
+## 3. 예외 누수 해결
+
+특정 데이터 접근 기술의 체크 예외에 종속되지 않기 위해 해당 예외를 나타내는 런타임 예외를 만들어 예외 누수를 해결할 수 있습니다.
+
+### 3-1. 런타임 예외를 직접 만들어 해결
+
+JDBC를 예로 들면 SQL에 문제가 있을 때 발생되는 `SQLException`이 체크 예외이기 때문에 해당 작업을 사용하는 함수에 throws를 꼭 추가해야하는 문제가 있습니다.
+
+\[Before]
+```java
+@RequiredArgsConstructor
+public class BeforeRepository {  
+	
+	private final DataSource dataSource;
+	
+	public void update(String memberId, int money) throws SQLException {  
+	    String sql = "update MEMBER set money=? where member_id=?";  
+		
+		Connection con = null;
+	    PreparedStatement pstmt = null;  
+		
+	    try {  
+		    con = DataSourceUtils.getConnection(datasource);
+	        pstmt = con.prepareStatement(sql);  
+	        pstmt.setInt(1, money);  
+	        pstmt.setString(2, memberId);  
+	        pstmt.executeUpdate();  
+	    } catch (SQLException e) {  
+	        throw e;  
+	    } finally {  
+	        JdbcUtils.closeStatement(rs);
+	        JdbcUtils.closeStatement(pstmt); 
+	        DataSourceUtils.releaseConnection(con, dataSource);
+	    }  
+	}
+}
+```
+
+하지만 언체크 예외인 런타임 예외라면 throws를 굳이 함수 뒤에 넣어주지 않아도 되는 특징을 이용하여 따로 런타임 예외를 만들어 해당 런타임 예외로 예외변환을 진행하면 `throw SQLException`을 제거하게 될 수 있습니다.
+
+\[After]
+- **따로 런타임 에러 구현**
+```java
+public class MyDbException extends RuntimeException {
+	
+	public MyDbException() {
+	}
+	
+	public MyDbException(String message) {
+		super(message);
+	}
+	
+	public MyDbException(Throwable cause) {
+		super(cause);
+	}
+	
+	public MyDbException(String message, Throwable cause) {
+		super(message, cause);
+	}
+	
+}
+```
+- **SQLException을 내가 만든 런타임 에러로 예외변환**
+```java
+@RequiredArgsConstructor
+public class AfterRepository {  
+	
+	private final DataSource dataSource;
+	
+	public void update(String memberId, int money) { 
+	    String sql = "update MEMBER set money=? where member_id=?";  
+		
+		Connection con = null;
+	    PreparedStatement pstmt = null;  
+		
+	    try {  
+		    con = DataSourceUtils.getConnection(datasource);
+	        pstmt = con.prepareStatement(sql);  
+	        pstmt.setInt(1, money);  
+	        pstmt.setString(2, memberId);  
+	        pstmt.executeUpdate();  
+	    } catch (SQLException e) {  
+	        throw new MyDbException(e); // 예외 변환
+	    } finally {  
+	        JdbcUtils.closeStatement(rs);
+	        JdbcUtils.closeStatement(pstmt); 
+	        DataSourceUtils.releaseConnection(con, dataSource);
+	    }  
+	}
+}
+```
+> [!warning] 변경된 점
+> SQLException이 발생하면 그대로 throw할 경우, update() 메서드의 throws 선언에 SQLException을 추가해야 합니다. 
+> 이를 방지하기 위해, SQLException을 런타임 예외인 MyDbException으로 변환하여 throw했기 때문에update() 메서드에서 SQLException을 선언하지 않아도 되도록 하였습니다.
+
+> [!note] 예외 변환
+> MyDbException의 생성자 중 MyDbException(Throwable cause)를 통해 SQLException이 터졌을 때의 이유 정보를 MyDbException이 받아서 throw할 수 있게 되었습니다.
+> `MyDbException` 이 내부에 `SQLException` 을 포함하고 있다고 이해하면 되어서, 예외를 출력했을 때 스택 트레이스를 통해 둘다 확인할 수 있습니다.
+>
+>때문에 `throw new MyDbException()`과같이 파라미터에 e를 빼먹으면 SQLException이 터진 이유 정보가 누락되기 때문에 꼭 e를 넣어줘야 합니다.
+
+Repository에서 throw되는 체크 예외가 전부 사라졌으니 Service에도 SQLException을 throw할 이유가 없어졌습니다.
+
+```java
+@Transactional
+@RequiredArgsConstructor
+public class AfterService {  
+	
+    private final Repository repository; 
+	
+	@Transactional
+    public void accountTransfer(String fromId, String toId, int money) { // throw SQLException 제거  
+	    
+		//************비즈니스 로직************//
+	    ...
+		//************비즈니스 로직************//
+    }
+}
+```
+
+### 3-2. 스프링이 제공하는 예외 추상화 적용
+
+MyDbException처럼 따로 런타임 에러를 만들면 해결할 수 있게 되었습니다.<br>하지만 그 안에서 키 중복 오류, SQL 문법 오류등등 여러 상황이 있는데 이 상황에 맞춰서 각각 다 런타임 에러를 만들기는 힘듭니다.<br>이를 해결하기 위해 스프링은 기본적으로 [[DataAccessException]]라는 예외를 제공합니다.
+
+데이터 접근 기술에서 발생한 에러를 스프링이 제공하는 데이터 접근 예외로 변환하기 위해선 [[SQLExceptionTranslator]]를 사용해야 합니다.
+
+\[Before]
+```java
+@RequiredArgsConstructor
+public class BeforeRepository {  
+	
+	private final DataSource dataSource;
+	
+	public void update(String memberId, int money) { 
+	    String sql = "update MEMBER set money=? where member_id=?";  
+		
+		Connection con = null;
+	    PreparedStatement pstmt = null;  
+		
+	    try {  
+		    con = DataSourceUtils.getConnection(datasource);
+	        pstmt = con.prepareStatement(sql);  
+	        pstmt.setInt(1, money);  
+	        pstmt.setString(2, memberId);  
+	        pstmt.executeUpdate();  
+	    } catch (SQLException e) {  
+	        throw new MyDbException(e); // 예외 변환
+	    } finally {  
+	        JdbcUtils.closeStatement(rs);
+	        JdbcUtils.closeStatement(pstmt); 
+	        DataSourceUtils.releaseConnection(con, dataSource);
+	    }  
+	}
+}
+```
+
+\[After]
+```java
+@RequiredArgsConstructor
+public class AfterRepository {  
+	
+	private final DataSource dataSource;
+	private final SQLExceptionTranslator exTranslator;
+	
+	public void update(String memberId, int money) { 
+	    String sql = "update MEMBER set money=? where member_id=?";  
+		
+		Connection con = null;
+	    PreparedStatement pstmt = null;  
+		
+	    try {  
+		    con = DataSourceUtils.getConnection(datasource);
+	        pstmt = con.prepareStatement(sql);  
+	        pstmt.setInt(1, money);  
+	        pstmt.setString(2, memberId);  
+	        pstmt.executeUpdate();  
+	    } catch (SQLException e) {  
+	        throw exTranslator.translate("update", sql, e);
+	    } finally {  
+	        JdbcUtils.closeStatement(rs);
+	        JdbcUtils.closeStatement(pstmt); 
+	        DataSourceUtils.releaseConnection(con, dataSource);
+	    }  
+	}
+}
+```
+
 ---
 # 최종 구조
 
