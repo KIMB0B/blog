@@ -289,5 +289,4 @@ SELECT * FROM MEMBER WHERE MONEY > :money
 
 즉 코드 내에서 조건에 따라 SQL 쿼리문이 동적으로 변해야 하는 경우도 있는데, JdbcTemplate는 따로 해당 동적 변환 기능이 없기 때문에 쿼리 문자열에서 조건을 더해 `WHERE MONEY > :money`를 money가 있을 때 더하는 식으로 무식하게 처리할 수 밖에 없습니다.
 
-이런 동적 쿼리 문제를 해결하기 위해선 MyBatis를 적용해야 합니다.
-
+이런 동적 쿼리 문제를 해결하기 위해선 [[MyBatis]]를 적용해야 합니다.
