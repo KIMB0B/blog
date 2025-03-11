@@ -136,3 +136,83 @@ JPA에서 발생하는 예외 상황을 위한 Exception 클래스들이 여러�
 ![[Pasted image 20250310114623.png]]
 
 `@Repository`가 붙은 클래스는 [[10. 알아서 해줘! Component Scan|Component Scan]]의 대상이 됩니다. <br>그리고 `@Repository`가 붙은 클래스는 JPA가 인식하여 알아서 예외 변환 AOP를 적용시켜서 JPA만의 Exception이 아닌, 스프링이 제공하는 예외로 변환됩니다.
+
+# 스프링 데이터 JPA
+
+> 스프링에서 JPA를 편리하게 사용할 수 있도록 공통 인터페이스를 구현해주고 쿼리 메서드를 지원해주는 라이브러리
+
+## 1. 대표 기능
+
+### 1-1. 공통 인터페이스 기능
+
+일반적으로 Repository에서 구현하는 CRUD 기능들을 `JpaRepository`인터페이스를 통해 제공하기 때문에 코드가 간결해집니다.
+
+\[Before]
+
+```java
+@Repository
+@Transactional
+@RequiredArgsConstructor
+public class Repository {
+
+	private final EntityManager em;
+	
+	public void update(Long id, MemberUpdateDto updateParam) {
+		Member member = em.find(Member.class, id);
+		member.setMoney(updateParam.getMoney());
+	}
+}
+```
+
+\[After]
+
+```java
+public interface Repository extends JpaRepository<Member, Long> {
+}
+```
+
+![[Pasted image 20250312002558.png]]
+
+위와같이 스프링 데이터 JPA가 구현 클래스를 보이지 않는 곳에서 자동으로 생성하여 [[Bean]]으로 등록합니다.
+
+`JpaRepository`를 extends하여 사용할 수 있는데, JpaRepository<`엔티티 클래스`, `PK값 타입`>으로 넣어주면 됩니다.
+
+### 1-2. 쿼리 메서드 기능
+
+스프링 데이터 JPA에서 기본적으로 지원하는 메서드 외에 더 복잡한 메서드를 만들고자 한다면, 복잡한 쿼리나 코드 작성 없이 메서드의 이름에서 무슨 작업을 할 것인지 정의해주면 구현 가능합니다.
+
+\[Before]
+
+```java
+public List<Member> findByUsernameAndAgeGreaterThan(String username, int age) {
+	return em.createQuery("select m from Member m where m.username = :username and m.age > :age")
+		.setParameter("username", username)
+		.setParameter("age", age)
+		.getResultList()
+}
+```
+
+\[After]
+```java
+public interface Repository extends JpaRepository<Member, Long> {
+	List<Member> findByUsernameAndAgeGreaterThan(String username, int age);
+}
+```
+
+**규칙**
+- 조회: `find…By` ,`read…By` , `query…By` , `get…By`
+	- 예:) `findHelloBy` 처럼 ...에 식별하기 위한 내용(설명)이 들어가도 된다.
+- COUNT: `count…By` 반환타입 `long`
+- EXISTS: `exists…By` 반환타입 `boolean`
+- 삭제: `delete…By` , `remove…By` 반환타입 `long`
+- DISTINCT: `findDistinct` , `findMemberDistinctBy`
+- LIMIT: `findFirst3` , `findFirst` , `findTop` , `findTop3`
+
+물론 `JPQL`을 통한 구현도 가능합니다.
+
+```java
+public interface Repository extends JpaRepository<Member, Long> {
+	@Query("select m from member m where m.username = :username and i.age > :age")
+	List<Member> findUsers(@Param("username") String username, @Param("age") int age);
+}
+```
