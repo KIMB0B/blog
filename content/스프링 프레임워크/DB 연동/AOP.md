@@ -6,13 +6,18 @@ date: 2025-03-15T16:34:00
 
 > **관점 지향 프로그래밍(AOP)** 을 이용하여 트랜잭션 관리를 자동화하는 기법<br>Spring에서는 [[@Transactional]]을 사용하면 **프록시**가 생성되며 AOP가 자동으로 적용됩니다.
 
+>[!question] 프록시란?
+>자동으로 만들어져서 원래 객체 대신해서 요청을 받고, 로직을 수행하는 중간 역할의 객체입니다.
+>
+>즉, 우리가 @Transactional 하나만 추가하면 자동으로 트랜잭션이 적용되는 것처럼 보이지만, 실제로는 [[PlatformTransactionManager]]를 활용한 트랜잭션 관리 기능을 포함한 프록시 객체를 생성하고 이를 호출했기 때문에 트랜잭션 적용이 가능했던 것입니다.
+
 # 스프링 컨테이너에 프록시 등록 과정
 
-`TxBasicTest`라는 클래스에서 `BasicClass`를 가져온다고 가정합니다.<br>`BasicClass`에서 단 하나라도 [[@Transactional]]이 붙은 메서드가 있다면 `BasicClass`의 프록시가 자동으로 생성되며 [[Bean]]으로 등록됩니다.
+`TxBasicTest`라는 클래스에서 `BasicService`를 가져온다고 가정합니다.<br>`BasicService`에서 단 하나라도 [[@Transactional]]이 붙은 메서드가 있다면 `BasicService`의 프록시가 자동으로 생성되며 [[Bean]]으로 등록됩니다.
 
 ![[Pasted image 20250315164121.png]]
 
-그리고 프록시 클래스는 실제 `BasicClass`를 상속하는 관계를 갖습니다.
+그리고 프록시 클래스는 실제 `BasicService`를 상속하는 관계를 갖습니다.
 
 ![[Pasted image 20250315164158.png]]
 
