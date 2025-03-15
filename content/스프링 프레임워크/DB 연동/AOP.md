@@ -2,7 +2,7 @@
 title: AOP란?
 date: 2025-03-15T16:34:00
 ---
-# AOP의 정의
+# AOP(Aspect-Oriented Programming)의 정의
 
 > **관점 지향 프로그래밍(AOP)** 을 이용하여 트랜잭션 관리를 자동화하는 기법<br>Spring에서는 [[@Transactional]]을 사용하면 **프록시**가 생성되며 AOP가 자동으로 적용됩니다.
 
