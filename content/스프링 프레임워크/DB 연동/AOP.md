@@ -1,5 +1,5 @@
 ---
-title: 트랜잭션 AOP란?
+title: AOP란?
 date: 2025-03-15T16:34:00
 ---
 # AOP의 정의
