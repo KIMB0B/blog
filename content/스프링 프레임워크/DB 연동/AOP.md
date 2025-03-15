@@ -21,7 +21,7 @@ date: 2025-03-15T16:34:00
 
 ![[Pasted image 20250315164158.png]]
 
-결과적으로 `TxBasicTest`에서 `BasicClass`의 기능을 호출하면, 사실은 `BasicClass`의 프록시를 호출하는 것이고 프록시는 실제 `BasicClass`를 참조하게 됩니다.
+결과적으로 `TxBasicTest`에서 `BasicService`의 기능을 호출하면, 사실은 `BasicService`의 프록시를 호출하는 것이고 프록시는 실제 `BasicClass`를 참조하게 됩니다.
 
 ![[Pasted image 20250315164350.png]]
 
@@ -83,7 +83,7 @@ TransactionInterceptor : Getting transaction for [Hello.init2]
 TransactionInterceptor : Completing transaction for [Hello.init2]
 ```
 
-로그중 `Hello init @PostConstruct tx active=false`를 보면 아시다시피 @PostConstruct에 @Transactional을 적용했다 하더라도 `isActualTransactionActive()`의 결과가 `false`가 나오면서 트랜잭션이 적용되지 않는다는 것을 알 수 있습니다.
+로그중 `initV1()`의 실행 결과로 `Hello init @PostConstruct tx active=false`를 보면 아시다시피 @PostConstruct에 @Transactional을 적용했다 하더라도 `isActualTransactionActive()`의 결과가 `false`가 나오면서 트랜잭션이 적용되지 않는다는 것을 알 수 있습니다.
 
 >[!question] 그럼 사전에 트랜잭션 작업을 하는 방법은 없는걸까?
 >`initV2()`의 실행 결과를 보면  `isActualTransactionActive()`의 결과가 `true`가 나온것을 확인하실 수 있습니다.
