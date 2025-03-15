@@ -190,4 +190,4 @@ CallService : tx active=false
 2. 예외가 **체크 예외**라면 해당 트랜잭션을 커밋합니다.
 3. 예외가 **언체크 예외**라면 해당 트랜잭션을 롤백합니다.
 
-체크 예외가 발생한 상황에 커밋이 아닌 롤백을 해야 하는 상황이라면 [[@Transactional#2. rollbackFor / noRollbackFor|rollbackFor()]]를 지정해주면 됩니다. 반대 상황도 동일합니다.
+체크 예외가 발생한 상황에 커밋이 아닌 롤백을 해야 하는 상황이라면 @Transactional의 옵션 중 [[@Transactional#2. rollbackFor / noRollbackFor|rollbackFor()]]를 지정해주면 됩니다. 반대 상황도 동일합니다.
