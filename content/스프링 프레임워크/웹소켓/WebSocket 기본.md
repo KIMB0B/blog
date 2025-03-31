@@ -64,3 +64,10 @@ socket.addEventListener('message', (event) => {
 	displayMessage(data);
 });
 ```
+
+---
+
+WebSocket은 메시지를 주고받는 방식 자체만 제공할 뿐, 메시지의 규격이나 형식은 제공하지 않습니다.
+메시지를 어떻게 구조화해서 보내야 할지에 대한 표준의 필요성 때문에 추가적인 기능들이 생겼습니다.
+
+해당 내용은 다음 [[Broker 패턴의 WebSocket]]에 정리했습니다.

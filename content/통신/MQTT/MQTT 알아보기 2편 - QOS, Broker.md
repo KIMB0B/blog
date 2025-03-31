@@ -6,7 +6,7 @@ date: 2022-03-08T14:48:00
 
 지난시간엔 MQTT에 대한 기본적인것과 Public, Subscribe, Topic에 대해 알아보았다. 기억이 나지 않는다면 1편을 다시 보도록 하자.
 
-[[MQTT] MQTT란 무엇일까? - 1편 (MQTT/Publish/Subscribe/Topic)](https://hel-p.tistory.com/15)
+[[MQTT 알아보기 1편 - MQTT, Publish, Subscribe, Topic]]
 
 # **QoS는 뭘까?**
 
