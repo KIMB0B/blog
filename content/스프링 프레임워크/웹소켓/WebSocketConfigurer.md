@@ -6,7 +6,7 @@ date: 2025-03-31T09:34:00
 
 > WebSocketConfigurer는 **Spring에서 WebSocket 핸들러를 등록하는 인터페이스**<br>이를 구현하면 WebSocket 엔드포인트를 설정하고, 특정 핸들러와 매핑할 수 있습니다.
 > 
-> **단순 WebSocket**이 필요한 상태일 때 사용하는 설정 클래스이며, 메시지 브로커 기반으로 설정을 위해서는 [[EnableWebSocketMessageBroker]]로 설정을 해 줘야 합니다.
+> **단순 WebSocket**이 필요한 상태일 때 사용하는 설정 클래스이며, 메시지 브로커 기반으로 설정을 위해서는 [[WebSocketMessageBrokerConfigurer]]로 설정을 해 줘야 합니다.
 
 ---
 # 주요 메서드

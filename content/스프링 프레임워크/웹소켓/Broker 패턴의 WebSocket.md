@@ -7,3 +7,21 @@ date: 2025-03-31T10:31:00
 이를 해결하기 위해 WebSocket 위에서 동작하는 [[STOMP]]을 사용하면, 일정한 **규격을 갖춘 메시지를 주고받을 수 있으며, 메시지 브로커를 활용한 Pub/Sub 구조**를 쉽게 구현할 수 있습니다.
 (`Pub/Sub 구조`는 [[MQTT 알아보기 1편 - MQTT, Publish, Subscribe, Topic|MQTT]]에서도 사용하고 있으며, 해당 글에 관련 내용을 자세히 정리해놨습니다)
 
+# 필요 라이브러리
+
+```java
+// build.gradle
+...
+dependencies {  
+    ...
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+}
+...
+```
+
+---
+# 구현
+
+## 1. [[WebSocketMessageBrokerConfigurer|EnableWebSocketMessageBroker 구현]]
+
+[[WebSocketMessageBrokerConfigurer]] 페이지 참고

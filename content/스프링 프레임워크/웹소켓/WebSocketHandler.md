@@ -34,21 +34,21 @@ date: 2025-03-31T09:32:00
 public class MyWebSocketHandler extends TextWebSocketHandler {    
     private final Set<WebSocketSession> sessions = new CopyOnWriteArraySet<>();  
     
-    @Override  
+    @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {  
         sessions.add(session);  
     }  
 	
-    @Override  
+    @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {  
         for (WebSocketSession webSocketSession : sessions) {  
             if (webSocketSession.isOpen()) {  
                 webSocketSession.sendMessage(message);  
-            }  
-        }  
-    }  
+            }
+        }
+    }
 	
-    @Override  
+    @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {  
         sessions.remove(session);  
     }  
