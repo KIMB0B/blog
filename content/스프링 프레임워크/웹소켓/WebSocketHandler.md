@@ -8,13 +8,14 @@ date: 2025-03-31T09:32:00
 
 # WebSocketHandler 종류
 
-|**핸들러 종류**|**사용 목적**|**지원 메시지 유형**|
-|---|---|---|
-|**WebSocketHandler**|기본 WebSocket 인터페이스|텍스트 + 바이너리|
-|**TextWebSocketHandler**|텍스트 메시지 전용 (채팅, JSON)|TextMessage|
-|**BinaryWebSocketHandler**|파일, 이미지, 오디오 등 바이너리 전용|BinaryMessage|
-|**PerConnectionWebSocketHandler**|세션별 독립적인 핸들러 생성|텍스트 + 바이너리|
+| **핸들러 종류**                        | **사용 목적**              | **지원 메시지 유형** |
+| --------------------------------- | ---------------------- | ------------- |
+| **WebSocketHandler**              | 기본 WebSocket 인터페이스     | 텍스트 + 바이너리    |
+| **TextWebSocketHandler**          | 텍스트 메시지 전용 (채팅, JSON)  | TextMessage   |
+| **BinaryWebSocketHandler**        | 파일, 이미지, 오디오 등 바이너리 전용 | BinaryMessage |
+| **PerConnectionWebSocketHandler** | 세션별 독립적인 핸들러 생성        | 텍스트 + 바이너리    |
 
+---
 # 주요 메서드
 
 | **메서드**                    | **설명**                    |
@@ -25,6 +26,7 @@ date: 2025-03-31T09:32:00
 | afterConnectionClosed      | 클라이언트가 연결을 종료했을 때 호출      |
 | supportsPartialMessages    | 부분 메시지(프레임 분할)를 지원하는지 여부  |
 
+---
 # 구현 예시
 
 간단히 TextWebSocketHandler를 구현한 예시입니다.
