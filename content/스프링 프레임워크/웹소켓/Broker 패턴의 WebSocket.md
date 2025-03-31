@@ -22,7 +22,7 @@ dependencies {
 ---
 # 구현
 
-## 1. [[WebSocketMessageBrokerConfigurer|EnableWebSocketMessageBroker 구현]]
+## 1. [[WebSocketMessageBrokerConfigurer|WebSocketMessageBrokerConfigurer 구현]]
 
 [[WebSocketMessageBrokerConfigurer]] 페이지 참고
 
