@@ -29,7 +29,7 @@ dependencies {
 
 ---
 
-# 클라이언트에서 WebSocket 서버 사용
+# 클라이언트에서 사용
 
 ## 1. WebSocket 연결
 

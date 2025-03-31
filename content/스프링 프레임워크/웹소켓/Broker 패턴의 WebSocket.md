@@ -25,3 +25,91 @@ dependencies {
 ## 1. [[WebSocketMessageBrokerConfigurer|EnableWebSocketMessageBroker 구현]]
 
 [[WebSocketMessageBrokerConfigurer]] 페이지 참고
+
+## 2. Controller 구현
+
+@MessageMapping과 @SendTo를 사용하여 **클라이언트가 보낸 메시지를 특정 경로에서 처리하고, 다른 클라이언트들에게 전달할 수 있도록 브로커로 전송**할 수 있습니다.
+
+### 2-1. @SendTo를 사용하여 전달
+
+```java
+@Controller  
+@RequiredArgsConstructor
+public class ChatController {  
+	
+    private final MessageService messageService;  
+	
+    // /app/chat.sendMessage 로 들어오는 메시지를 처리  
+    @MessageMapping("/chat.sendMessage")
+    // /topic/public을 구독하는 클라이언트에게 전달
+    @SendTo("/topic/public")  
+    public ChatMessage sendMessage(ChatMessage chatMessage) {  
+        return chatMessage;  
+    }
+}
+```
+
+### 2-2. SimpMessagingTemplate를 사용하여 전달
+
+```java
+@Controller  
+@RequiredArgsConstructor
+public class ChatController {  
+	
+    private final MessageService messageService; 
+    // 직접 브로커에 메시지를 전달할 수 있는 기능을 갖고 있음
+    private final SimpMessagingTemplate messagingTemplate; 
+	
+    // /app/chat.sendMessage 로 들어오는 메시지를 처리  
+    @MessageMapping("/chat.sendMessage")
+    public void sendMessage(ChatMessage chatMessage) {  
+	    // /topic/public을 구독하는 클라이언트에게 전달
+        messagingTemplate.convertAndSend("/topic/public", chatMessage);  
+    }
+}
+```
+
+---
+# 클라이언트에서 사용
+
+## 1. WebSocket 연결
+
+```javascript
+const socket = new SockJS('http://localhost:8083/ws');
+const stompClient = Stomp.over(socket);
+```
+
+## 2. 연결 및 구독
+
+`/topic/public`을 구독하며, 해당 브로커에 메시지가 온다면 처리할 로직을 구현할 수 있습니다.
+
+```javascript
+stompClient.connect({}, function(frame) {
+	
+	const subscription = stompClient.subscribe('/topic/public', function(message) {
+		
+		const data = JSON.parse(message.body);
+		displayMessage(data);
+	});
+});
+```
+
+## 3. WebSocket에 데이터 보내기
+
+```javascript
+document.getElementById('chat-form').addEventListener('submit', (e) => {
+
+	e.preventDefault();
+	
+	const input = document.getElementById('chat-input');
+	const message = input.value;
+	const chatMessage = {
+		type: 'CHAT',
+		roomId: roomId,
+		sender: username,
+		content: message
+	};
+	// 클라이언트에서 사용하는 경로에 send()를 통해 메시지를 전달할 수 있다
+	stompClient.send("/app/chat.sendMessage", {}, JSON.stringify(chatMessage));
+});
+```
