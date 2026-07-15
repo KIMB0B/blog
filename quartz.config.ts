@@ -1,5 +1,28 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
+import { QuartzPluginData } from "./quartz/plugins/vfile"
+
+// 폴더 페이지 정렬: "1. ", "2) " 같은 번호가 붙은 시리즈 글은 번호 오름차순,
+// 나머지는 최신순, 날짜 없는 글은 마지막에 가나다순
+const numPrefix = (t: string): number | null => {
+  const m = t.match(/^\s*(\d+)\s*[.)]/)
+  return m ? parseInt(m[1], 10) : null
+}
+const folderSort = (a: QuartzPluginData, b: QuartzPluginData): number => {
+  const ta = String(a.frontmatter?.title ?? "")
+  const tb = String(b.frontmatter?.title ?? "")
+  const na = numPrefix(ta)
+  const nb = numPrefix(tb)
+  if (na !== null && nb !== null) return na - nb
+  if (na !== null) return -1
+  if (nb !== null) return 1
+  const da = a.dates?.created?.getTime()
+  const db = b.dates?.created?.getTime()
+  if (da && db) return db - da
+  if (da) return -1
+  if (db) return 1
+  return ta.localeCompare(tb, "ko")
+}
 
 /**
  * Quartz 4.0 Configuration
@@ -78,7 +101,7 @@ const config: QuartzConfig = {
       Plugin.AliasRedirects(),
       Plugin.ComponentResources(),
       Plugin.ContentPage(),
-      Plugin.FolderPage(),
+      Plugin.FolderPage({ sort: folderSort }),
       Plugin.TagPage(),
       Plugin.ContentIndex({
         enableSiteMap: true,
