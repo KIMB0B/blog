@@ -1,6 +1,8 @@
 ---
 title: "@ResponseBody란?"
 date: 2024-08-20T23:43:00
+tags:
+  - 스프링/개념
 ---
 
 # @ResponseBody의 정의

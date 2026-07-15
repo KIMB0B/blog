@@ -1,7 +1,10 @@
 ---
 title: AOP란?
 date: 2025-03-15T16:34:00
+tags:
+  - 스프링/DB연동
 ---
+
 # AOP(Aspect-Oriented Programming)의 정의
 
 > **관점 지향 프로그래밍(AOP)** 을 이용하여 트랜잭션 관리를 자동화하는 기법<br>Spring에서는 [[@Transactional]]을 사용하면 **프록시**가 생성되며 AOP가 자동으로 적용됩니다.
@@ -21,7 +24,7 @@ date: 2025-03-15T16:34:00
 
 ![[Pasted image 20250315164158.png]]
 
-결과적으로 `TxBasicTest`에서 `BasicService`의 기능을 호출하면, 사실은 `BasicService`의 프록시를 호출하는 것이고 프록시는 실제 `BasicClass`를 참조하게 됩니다.
+결과적으로 `TxBasicTest`에서 `BasicService`의 기능을 호출하면, 사실은 `BasicService`의 프록시를 호출하는 것이고 프록시는 실제 `BasicService`를 참조하게 됩니다.
 
 ![[Pasted image 20250315164350.png]]
 
@@ -31,7 +34,7 @@ date: 2025-03-15T16:34:00
 
 AOP를 통해 트랜잭션이 적용되는 시점은 **스프링 컨테이너가 완전히 생성된 후**입니다.
 
-그러므로 `@PostConstruct`와 같이 스프링 컨테이서 생성이 되기 전인 초기화 시점에는 트랜잭션이 적용되지 않습니다.
+그러므로 `@PostConstruct`와 같이 스프링 컨테이너 생성이 되기 전인 초기화 시점에는 트랜잭션이 적용되지 않습니다.
 
 ```java
 @SpringBootTest  

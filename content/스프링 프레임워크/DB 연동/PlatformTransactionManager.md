@@ -1,7 +1,10 @@
 ---
 title: PlatformTransactionManager란?
 date: 2025-03-03T15:56:00
+tags:
+  - 스프링/DB연동
 ---
+
 # PlatformTransactionManager의 정의
 
 > 트랜잭션을 시작하고 커밋, 롤백하는 과정을 [[JDBC]]와 같은 특정 데이터 접근 기술에 종속되지 않게 하기 위해 추상화하여 만든 인터페이스

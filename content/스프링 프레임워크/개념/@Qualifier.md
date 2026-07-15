@@ -1,6 +1,8 @@
 ---
 title: "@Qualifier란?"
 date: 2024-08-20T23:33:00
+tags:
+  - 스프링/개념
 ---
 
 # @Qualifier의 정의

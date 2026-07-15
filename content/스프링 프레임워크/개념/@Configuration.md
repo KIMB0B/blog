@@ -1,6 +1,8 @@
 ---
 title: "@Configuration이란?"
 date: 2024-08-20T23:23:00
+tags:
+  - 스프링/개념
 ---
 
 # @Configuration의 정의

@@ -1,6 +1,8 @@
 ---
 title: "@RequestMapping이란?"
 date: 2024-08-20T23:38:00
+tags:
+  - 스프링/개념
 ---
 
 # @RequestMapping의 정의

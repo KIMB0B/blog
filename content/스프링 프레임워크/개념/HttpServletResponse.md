@@ -1,6 +1,8 @@
 ---
 title: HttpServletResponse란?
 date: 2024-08-21T13:59:00
+tags:
+  - 스프링/개념
 ---
 
 # HttpServletResponse의 정의

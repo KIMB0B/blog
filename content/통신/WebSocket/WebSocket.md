@@ -1,7 +1,11 @@
 ---
 title: WebSocket이란?
 date: 2025-03-30T12:49:00
+tags:
+  - 네트워크
+  - WebSocket
 ---
+
 # WebSocket의 정의
 
 > WebSocket은 서버와 클라이언트 간의 `양방향 통신`을 가능하게 해주는 프로토콜입니다.
@@ -48,7 +52,7 @@ Sec-WebSocket-Version: 13
 ![[Pasted image 20250330131325.png]]
 
 ---
-# WebSockt 대체 기술과의 비교
+# WebSocket 대체 기술과의 비교
 
 ## 1. Long Polling
 

@@ -1,6 +1,8 @@
 ---
 title: "@RequestParam이란?"
 date: 2024-08-20T23:42:00
+tags:
+  - 스프링/개념
 ---
 
 # @RequestParam의 정의

@@ -1,6 +1,8 @@
 ---
 title: Servlet이란?
 date: 2024-08-21T14:11:00
+tags:
+  - 스프링/개념
 ---
 
 # 정의
@@ -31,7 +33,7 @@ HTTP에 요청이 들어오면서 서버는 요청 메시지를 받아 다양한
 
 # 스프링 부트에서 서블릿 등록 설정
 
-메인 어플리케이션 클래스에서 `@ServletComponentScan` 을 사용해 프로젝트의 서블릿을 자동으로 등록합니다.
+메인 애플리케이션 클래스에서 `@ServletComponentScan` 을 사용해 프로젝트의 서블릿을 자동으로 등록합니다.
 ```java
 @ServletComponentScan
 @SpringBootApplication

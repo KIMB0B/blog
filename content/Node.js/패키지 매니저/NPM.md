@@ -1,3 +1,11 @@
+---
+title: NPM이란?
+date: 2024-08-20T14:15:57
+tags:
+  - NodeJS
+  - 패키지매니저
+---
+
 ![image](https://gist.github.com/user-attachments/assets/521b6c43-8abb-4336-b02c-f1c3ab20fa4b)
 
 # 정의

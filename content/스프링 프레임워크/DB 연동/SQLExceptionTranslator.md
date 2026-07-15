@@ -1,7 +1,10 @@
 ---
 title: SQLExceptionTranslator란?
 date: 2025-03-06T13:24:00
+tags:
+  - 스프링/DB연동
 ---
+
 # SQLExceptionTranslator의 정의
 
 > Spring에서 체크 예외인 SQLException을 적절한 [[DataAccessException]] 계열의 예외로 변환하는 인터페이스

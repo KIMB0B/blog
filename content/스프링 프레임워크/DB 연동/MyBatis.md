@@ -1,7 +1,10 @@
 ---
 title: MyBatis란?
 date: 2025-03-09T13:06:00
+tags:
+  - 스프링/DB연동
 ---
+
 # MyBatis의 정의
 
 > [[JdbcTemplate]]이 제공하는 기능을 제공하면서 추가로 `동적 쿼리`를 편리하게 작성할 수 있게 하는 `SQL Mapper`
@@ -88,7 +91,7 @@ public interface MemberMapper {
 
 [[JdbcTemplate]]에선 `?` 혹은 `:이름`으로 매핑하던 걸 MyBatis에서는 `#{이름}`으로 매핑하여 값을 가져옵니다.
 
-insert시 기본키가 자동 생성시에 [[JdbcTemplate#기본키 자동 지정 상황 대응하기|JdbcTemplate에서 적용한 방법]]처럼 귀찮은 구현은 필요 없이 `useGeneratedKeys`를 true로 지정해주고, 자동을 지정되는 키의 이름을 `keyProperty`에 설정해주면 MyBatis가 알아서 적용해줍니다.
+insert시 기본키가 자동 생성시에 [[JdbcTemplate#기본키 자동 지정 상황 대응하기|JdbcTemplate에서 적용한 방법]]처럼 귀찮은 구현은 필요 없이 `useGeneratedKeys`를 true로 지정해주고, 자동으로 지정되는 키의 이름을 `keyProperty`에 설정해주면 MyBatis가 알아서 적용해줍니다.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -168,11 +171,11 @@ select 조회 시에는 조회 후 나오는 데이터의 객체를 `resultType`
 ```
 >[!warning] `&gt;`는 무엇일까?
 >원래는 `money >= #{money}`가 와야합니다.
->하지만, `<`나 `>`는 XML에서 사용하는 기호이기 때문에 XML에선이와 같은 특수기호는 `&lt;`나 `&gt;`로 나타냅니다.
+>하지만, `<`나 `>`는 XML에서 사용하는 기호이기 때문에 XML에선 이와 같은 특수기호는 `&lt;`나 `&gt;`로 나타냅니다.
 
 > [!warning] `<where>`를 사용한 이유
 > 위 상황으로 보면 굳이 `<where>`가 필요없이 `select * from member where` 후 바로 `<if>`를 사용하면 될 것 같아 보입니다.
-> 하지만 이와 같이 작성하면 만일 if 조건이 거짓이 나올 경우 if문 안의 쿼리는 날라가기 때문에 `select * from member where;`라는 쿼리 자체가 실행됩니다.
+> 하지만 이와 같이 작성하면 만일 if 조건이 거짓이 나올 경우 if문 안의 쿼리는 날아가기 때문에 `select * from member where;`라는 쿼리 자체가 실행됩니다.
 > 그렇게 되면 where로만 끝나는 쿼리는 없기 때문에 문법 오류가 납니다.
 
 > [!question] if 조건이 참이면 `select * from member where and money <= #{money}`가 되어 문법 오류가 나지 않나요?

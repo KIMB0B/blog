@@ -1,6 +1,8 @@
 ---
 title: "@Validated란?"
 date: 2024-08-20T23:43:00
+tags:
+  - 스프링/개념
 ---
 
 # @Validated의 정의
@@ -109,5 +111,5 @@ public Object addItem(
 
 # [[@ModelAttribute]]와 [[@RequestBody]]에서 작동의 차이
 
-- `@ModelAttribute` 는 특정 필드가 바인딩 되지 않아도 나머지 필드 는 정상 바인딩 되고, Validator를 사용한 검증도 적용할 수 있습니다.  
-- `@RequestBody` 는 HttpMessageConverter 단계에서 JSON 데이터를 객체로 변경하지 못하면 이후 단계 자 체가 진행되지 않고 예외가 발생합니다. 컨트롤러도 호출되지 않고, Validator도 적용할 수 없습니다.
+- `@ModelAttribute` 는 특정 필드가 바인딩 되지 않아도 나머지 필드는 정상 바인딩 되고, Validator를 사용한 검증도 적용할 수 있습니다.  
+- `@RequestBody` 는 HttpMessageConverter 단계에서 JSON 데이터를 객체로 변경하지 못하면 이후 단계 자체가 진행되지 않고 예외가 발생합니다. 컨트롤러도 호출되지 않고, Validator도 적용할 수 없습니다.

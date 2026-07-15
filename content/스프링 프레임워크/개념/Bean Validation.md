@@ -1,6 +1,8 @@
 ---
 title: Bean Validation이란?
 date: 2024-08-21T12:33:00
+tags:
+  - 스프링/개념
 ---
 
 # Bean Validation의 정의

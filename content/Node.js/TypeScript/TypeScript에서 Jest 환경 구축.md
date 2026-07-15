@@ -1,6 +1,9 @@
 ---
 title: 1️⃣TypeScript에서 Jest 환경 구축
 date: 2024-08-20T10:51:00
+tags:
+  - NodeJS
+  - TypeScript
 ---
 
 ![image](https://res.cloudinary.com/practicaldev/image/fetch/s--J6qf2Ctw--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/gd97g4kdyk1bpdeyfqst.png)

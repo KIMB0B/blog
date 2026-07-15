@@ -1,7 +1,10 @@
 ---
 title: HandlerExceptionResolver란?
 date: 2024-09-18T11:45:00
+tags:
+  - 스프링/개념
 ---
+
 > 기본적으로 서버에서 오류가 발생하면 `500`상태코드의 에러가 발생하게 됩니다.<br>그러나 사용자와 관련된 에러는 `400` 상태코드를 반환하는 등 여러 상황에 따라 알맞은 400번대의 상태코드로 반환해야하는 상황이 있습니다.<br>이 때 HandlerExceptionResolver를 사용하면 이 상황을 해결할 수 있습니다.
 
 # HandlerExceptionResolver를 적용하지 않은 경우

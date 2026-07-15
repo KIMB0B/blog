@@ -1,7 +1,11 @@
 ---
 title: MQTT 알아보기 1편 - MQTT, Publish, Subscribe, Topic
 date: 2022-02-18T14:14:00
+tags:
+  - 네트워크
+  - MQTT
 ---
+
 ![](https://blog.kakaocdn.net/dn/d4dDMx/btrtDEA7P7D/rtVQBlODE4NczZkA9M2u3K/img.png)
 
 # **정의**
@@ -109,7 +113,7 @@ tree구조의 이점을 활용해 A로봇 전체의 측정값이 필요하다면
 
 MQTT가 뭐 하는 놈인지에 대해 정리해 보았다. 위의 내용들을 종합해서 있어 보이게 요약해보면 이제 어려워 보이는 말이 나와도 바로 알아들을 수 있다.
 
-> MQTT는 ISO를 통해 국제 표준화된 Publish-Subscribe 기반의 메시지 송/수신형 프로토롤이다.
+> MQTT는 ISO를 통해 국제 표준화된 Publish-Subscribe 기반의 메시지 송/수신형 프로토콜이다.
 
 ![](https://blog.kakaocdn.net/dn/mfiFA/btrtBOkJhtc/5CmQkM86Kk1sV0VhgUhi6K/img.jpg)
 

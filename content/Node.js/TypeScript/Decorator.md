@@ -1,6 +1,9 @@
 ---
 title: TypeScript에서 Decorator 사용해보기
 date: 2024-08-20T22:45:00
+tags:
+  - NodeJS
+  - TypeScript
 ---
 
 # Decorator 정의

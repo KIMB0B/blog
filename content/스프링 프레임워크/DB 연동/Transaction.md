@@ -1,10 +1,13 @@
 ---
 title: Transaction이란?
 date: 2025-03-02T00:36:00
+tags:
+  - 스프링/DB연동
 ---
+
 # Transaction의 정의
 
-> 데이테베이스에서 상태를 변화시키기 위해 수행하는 작업의 단위
+> 데이터베이스에서 상태를 변화시키기 위해 수행하는 작업의 단위
 
 ex) A가 B에게 5000원을 송금하는 경우
 	-> A의 잔고에서 5000원을 감소시키고, B의 잔고에서 5000원을 증가시키는 작업이 하나의 Transaction이 됩니다.
@@ -151,7 +154,7 @@ public class AfterRepository {
 > [!note] 주요 변경점
 > Connection을 [[DataSource]]에서 가져오는 것이 아닌 인자값에서 넣어져서 가져오는 방식으로 변경되었습니다.
 > 
-> 그리고 가져온 Connection은 여기서 끊어버리면 안되기 때문에 finally부분에서 Connection을 close하는 부분은 제거했습니다.
+> 그리고 가져온 Connection은 여기서 끊어버리면 안 되기 때문에 finally부분에서 Connection을 close하는 부분은 제거했습니다.
 
 ## 2. 서비스 로직 변경
 

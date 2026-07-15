@@ -1,7 +1,10 @@
 ---
 title: Multipart란? (Spring에서 파일 전송하기)
 date: 2025-02-14T11:25:00
+tags:
+  - 스프링/개념
 ---
+
 # Multipart의 정의
 
 > Http요청에서 파일 업로드를 할 때 주로 사용되며, 요청 데이터에 있는 파일이 Multipart 형태로 들어오게 됩니다.
@@ -107,4 +110,4 @@ public ResponseEntity<Resource> downloadAttach(@PathVariable Long itemId) throws
 }
 ```
 > [!note] 중요한 점
-> 여기서 파악해야할 점은 header에tj CONTENT_DISPOSITION으로 `attachment; filename="파일명"`을 넘겼다는 점입니다. 이렇게 해야 HTTP는 해당 파일이 파일이란 것을 인식하고 다운로드 할 수 있습니다.
+> 여기서 파악해야할 점은 header에 CONTENT_DISPOSITION으로 `attachment; filename="파일명"`을 넘겼다는 점입니다. 이렇게 해야 HTTP는 해당 파일이 파일이란 것을 인식하고 다운로드 할 수 있습니다.

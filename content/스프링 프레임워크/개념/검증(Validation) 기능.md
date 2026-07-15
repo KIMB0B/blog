@@ -1,6 +1,8 @@
 ---
 title: Spring의 검증(Validation) 기능
 date: 2024-08-21T12:21:00
+tags:
+  - 스프링/개념
 ---
 
 # 검증 기능의 정의
@@ -12,7 +14,7 @@ date: 2024-08-21T12:21:00
 
 # ThymeLeaf에서 검증 오류 표현
 
-[[검증 관련 기능|ThymeLeaf의 검증 관련 기능]] 참고
+ThymeLeaf의 검증 관련 기능 참고 (관련 글 준비 중)
 
 # [[Message 관리|Message 기능]] 응용
 

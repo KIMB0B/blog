@@ -1,7 +1,10 @@
 ---
 title: JPA란?
 date: 2025-03-10T11:12:00
+tags:
+  - 스프링/DB연동
 ---
+
 # JPA의 정의
 
 > `JPA(Java Persistence API)`는 자바 객체를 관계형 데이터베이스와 매핑(`ORM, Object-Relational Mapping`)하기 위한 표준 API<br>즉, DB의 데이터들을 객체 다루듯이 다룰 수 있도록 해줍니다.

@@ -1,7 +1,10 @@
 ---
 title: TransactionTemplate란?
 date: 2025-03-03T16:36:00
+tags:
+  - 스프링/DB연동
 ---
+
 # TransactionTemplate의 정의
 
 > 템플릿 콜백 패턴을 적용하여 Transaction 과정에서 반복적으로 작업하는 `트랜잭션 만들기 -> 오류 없으면 commit하기 -> 오류 있으면 rollback하기`과정을 간단하게 진행하게 해 주는 클래스입니다.

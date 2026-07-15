@@ -1,6 +1,8 @@
 ---
 title: ApplicationContext란?
 date: 2024-08-21T12:30:00
+tags:
+  - 스프링/개념
 ---
 
 # ApplicationContext의 정의

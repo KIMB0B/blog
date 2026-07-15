@@ -1,6 +1,8 @@
 ---
 title: BindingResult란?
 date: 2024-08-21T13:46:00
+tags:
+  - 스프링/개념
 ---
 
 # BindingResult의 정의

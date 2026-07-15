@@ -1,6 +1,8 @@
 ---
 title: Spring의 Bean이란?
 date: 2024-08-21T12:31:00
+tags:
+  - 스프링/개념
 ---
 
 # Bean의 정의
@@ -16,7 +18,7 @@ date: 2024-08-21T12:31:00
 </beans>
 ```
 ## 2. @Component를 통한 선언
-### 주요 Annnotation
+### 주요 Annotation
 - `@Component`: 일반적인 컴포넌트.
 - `@Repository`: 데이터 저장소의 역할을 수행하는 Bean에 사용.
 - `@Service`: 비즈니스 로직을 수행하는 Bean에 사용.
@@ -29,12 +31,12 @@ public class MyBean {
 }
 ```
 >[!Tip]
->Bean 선언 이후 @Component가 붙은 클래스들을 자동으로 설정파일으로 만들어주기 위해서 [[@ComponentScan]]을 사용하여 설정 클래스를 만들어줘야 합니다.
+>Bean 선언 이후 @Component가 붙은 클래스들을 자동으로 설정파일로 만들어주기 위해서 [[@ComponentScan]]을 사용하여 설정 클래스를 만들어줘야 합니다.
 ## [[@Configuration|3. Configuration을 통한 선언]]
 
 # 의존성 주입 방법
 
-> [[@Autowired]]를 통해 의존성 주입이 가능합니다..
+> [[@Autowired]]를 통해 의존성 주입이 가능합니다.
 
 # Bean 사용 방법
 

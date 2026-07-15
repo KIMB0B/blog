@@ -1,6 +1,8 @@
 ---
 title: HttpServletRequest란?
 date: 2024-08-21T13:58:00
+tags:
+  - 스프링/개념
 ---
 
 # HttpServletRequest의 정의
@@ -148,7 +150,7 @@ JsonData jsonData = objectMapper.readValue(messageBody, JsonData.class);
 # 임시 저장소 기능
 해당 HTTP 요청이 시작할 때 부터 끝날 때 까지 유지되는 임시 저장소 기능을 제공
 - 저장: `request.setAttribute(name, value)`
-- 조회: `request.getAttgribute(name)`
+- 조회: `request.getAttribute(name)`
 
 # 세션 관리 기능
 request.getSession(create: true)

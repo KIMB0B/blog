@@ -1,7 +1,10 @@
 ---
 title: Spring에서 Transaction을 간단하게 처리하기
 date: 2025-03-03T15:07:00
+tags:
+  - 스프링/DB연동
 ---
+
 # Transaction 단순 처리 시 문제점
 
 [[Transaction#2. 서비스 로직 변경|Transaction을 단순 처리한 Service]]를 확인하면 서비스 로직 뿐만이 아닌 과정이 많이 포함이 되어버리는 것을 확인할 수 있습니다.
@@ -12,7 +15,7 @@ date: 2025-03-03T15:07:00
 
 - 서비스 계층은 구현 기술이 변경되더라도 최대한 유지할 수 있는, 즉 변화에 대응할 수 있는 계층이어야 합니다. 하지만 현재 서비스 계층은 Transaction 처리를 하면서 JDBC 기능에 종속이 되었습니다.
 
-- 커넥션 유지를 위해서 파라미터에 커넥션을 넘기게 되었는데, 이러면 앞으로 Transaction을 유지하는 기능, 유지하지 않는 기능으로 같은 기능을 두개씩만들어야 하는 불편함이 생깁니다.
+- 커넥션 유지를 위해서 파라미터에 커넥션을 넘기게 되었는데, 이러면 앞으로 Transaction을 유지하는 기능, 유지하지 않는 기능으로 같은 기능을 두 개씩 만들어야 하는 불편함이 생깁니다.
 
 ## 2. 불필요한 반복 패턴
 
@@ -441,7 +444,7 @@ public class AfterRepository {
 ```
 > [!warning] 변경된 점
 > SQLException이 발생하면 그대로 throw할 경우, update() 메서드의 throws 선언에 SQLException을 추가해야 합니다. 
-> 이를 방지하기 위해, SQLException을 런타임 예외인 MyDbException으로 변환하여 throw했기 때문에update() 메서드에서 SQLException을 선언하지 않아도 되도록 하였습니다.
+> 이를 방지하기 위해, SQLException을 런타임 예외인 MyDbException으로 변환하여 throw했기 때문에 update() 메서드에서 SQLException을 선언하지 않아도 되도록 하였습니다.
 
 > [!note] 예외 변환
 > MyDbException의 생성자 중 MyDbException(Throwable cause)를 통해 SQLException이 터졌을 때의 이유 정보를 MyDbException이 받아서 throw할 수 있게 되었습니다.

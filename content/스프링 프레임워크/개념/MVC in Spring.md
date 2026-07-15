@@ -1,6 +1,8 @@
 ---
 title: Spring의 MVC 패턴 알아보기
 date: 2024-08-21T14:07:00
+tags:
+  - 스프링/개념
 ---
 
 # Spring의 [[Model-View-Controller(MVC)]] 전체 구조

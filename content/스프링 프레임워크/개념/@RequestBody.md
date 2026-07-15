@@ -1,6 +1,8 @@
 ---
 title: "@RequestBody란?"
 date: 2024-08-20T23:35:00
+tags:
+  - 스프링/개념
 ---
 
 # @RequestBody의 정의

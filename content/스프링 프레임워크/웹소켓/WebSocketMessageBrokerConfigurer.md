@@ -1,7 +1,10 @@
 ---
 title: WebSocketMessageBrokerConfigurer란?
 date: 2025-03-31T11:25:00
+tags:
+  - 스프링/웹소켓
 ---
+
 # WebSocketMessageBrokerConfigurer 정의
 
 > WebSocketMessageBrokerConfigurer는 **Spring에서 STOMP 기반의 WebSocket 메시지 브로커를 설정할 때 사용하는 인터페이스**입니다.

@@ -1,7 +1,10 @@
 ---
 title: DefaultHandshakeHandler란?
 date: 2025-03-31T22:29:00
+tags:
+  - 스프링/웹소켓
 ---
+
 # DefaultHandshakeHandler 정의
 
 > WebSocket 연결 시 Principal을 설정하여 **사용자를 구분**할 수 있는 핸들러입니다.<br> WebSocket 세션과 사용자를 매핑하는 데 유용하며, SimpMessagingTemplate을 사용하여 특정 사용자에게 메시지를 보낼 때 활용됩니다.

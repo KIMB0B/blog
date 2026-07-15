@@ -1,7 +1,10 @@
 ---
 title: ResponseStatusExceptionResolver란?
 date: 2024-09-18T12:03:00
+tags:
+  - 스프링/개념
 ---
+
 Spring에선 기본적으로 에러가 발생했을 때 가로채서 내가 원하는대로 처리해줄 수 있도록 하는 ExceptionResolver를 지원합니다.
 
 [[예외 처리#4. 스프링이 제공하는 ExceptionResolver 사용하기|Spring이 기본적으로 지원하는 ExceptionResolver는 3종류가 있으며]], 그 중 ResponseStatusExceptionResolver는 아래 두가지의 경우를 자동으로 처리할 수 있습니다.

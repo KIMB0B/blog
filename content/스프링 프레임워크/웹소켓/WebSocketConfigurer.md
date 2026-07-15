@@ -1,7 +1,10 @@
 ---
 title: WebSocketConfigurer란?
 date: 2025-03-31T09:34:00
+tags:
+  - 스프링/웹소켓
 ---
+
 # WebSocketConfigurer 정의
 
 > WebSocketConfigurer는 **Spring에서 WebSocket 핸들러를 등록하는 인터페이스**<br>이를 구현하면 WebSocket 엔드포인트를 설정하고, 특정 핸들러와 매핑할 수 있습니다.

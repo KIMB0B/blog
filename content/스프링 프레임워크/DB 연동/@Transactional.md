@@ -1,7 +1,10 @@
 ---
 title: "@Transactional이란?"
 date: 2025-03-03T17:02:00
+tags:
+  - 스프링/DB연동
 ---
+
 # @Transactional의 정의
 
 > 트랜잭션을 시작하고 커밋, 롤백 후 트랜잭션을 종료하는 과정을 서비스 로직에서 분리하기 위해 `트랜잭션 프록시`를 만드는 과정을 처리해주는 어노테이션
@@ -119,6 +122,6 @@ public class Service {
 
 트랜잭션 수행 시간을 초단위로 설정합니다.
 
-# 6. readOnly
+## 6. readOnly
 
-기본적으론 읽기/쓰기가 모두 가능한 트랜잭션이 기본적으로 생성되지만, 읽기만 가능하도록 설정하고 싶다면 `@Transactional = readOnly=true`
+기본적으론 읽기/쓰기가 모두 가능한 트랜잭션이 기본적으로 생성되지만, 읽기만 가능하도록 설정하고 싶다면 `@Transactional(readOnly = true)`

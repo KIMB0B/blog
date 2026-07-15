@@ -1,6 +1,8 @@
 ---
 title: "@ModelAttribute란?"
 date: 2024-08-20T23:25:00
+tags:
+  - 스프링/개념
 ---
 
 # @ModelAttribute의 정의

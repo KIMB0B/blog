@@ -1,6 +1,8 @@
 ---
 title: "@Autowired란?"
 date: 2024-08-20T23:06:00
+tags:
+  - 스프링/개념
 ---
 
 # @Autowired의 정의
@@ -125,4 +127,4 @@ public class OrderServiceImpl implements OrderService {
  private DiscountPolicy rateDiscountPolicy
 ```
 ### 2. [[@Qualifier]] 사용
-### 3. [[@Primary ]] 사용
+### 3. [[@Primary]] 사용

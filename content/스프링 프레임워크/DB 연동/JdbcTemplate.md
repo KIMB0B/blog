@@ -1,7 +1,10 @@
 ---
 title: JdbcTemplate란?
 date: 2025-03-07T18:41:00
+tags:
+  - 스프링/DB연동
 ---
+
 # JdbcTemplate의 정의
 
 > 템플릿 콜백 패턴을 사용하여 [[JDBC]]를 직접 사용할 때 발생하는 반복 작업을 대신 처리해주는 유틸리티
@@ -247,7 +250,7 @@ public class Repository {
 }
 ```
 
-위와 같이 선언할 때 `withTableName()`을 통해 해당 테이블 명을 지정하고, `usingGeneratedKeyColumns()`을 총해 기본키 이름을 명시해줘야 합니다.
+위와 같이 선언할 때 `withTableName()`을 통해 해당 테이블 명을 지정하고, `usingGeneratedKeyColumns()`을 통해 기본키 이름을 명시해줘야 합니다.
 
 ### 2-2. 사용
 

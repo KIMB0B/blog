@@ -1,6 +1,9 @@
 ---
 title: TypeScript의 Interface 알아보기
 date: 2024-08-20T22:46:00
+tags:
+  - NodeJS
+  - TypeScript
 ---
 
 # Interface 정의
@@ -45,5 +48,5 @@ profile.height = 180 // 🚨 기존 profile 객체에는 height가 없기에 데
 ---
 # 특징
 
-1. 기본적으로 interface안에 지정한 **속성**들은 객체 선언 시 **무조건 선언**되어야 하고, 무조건을 원치 않다면 interface의 속성명 뒤에 <u>물음표(?)</u>를 붙힘(예시의 hobby속성 참고)
+1. 기본적으로 interface안에 지정한 **속성**들은 객체 선언 시 **무조건 선언**되어야 하고, 무조건을 원치 않다면 interface의 속성명 뒤에 <u>물음표(?)</u>를 붙임(예시의 hobby속성 참고)
 2. interface를 생성할 때 넣지 않은 속성을 나중에 코드 내에서 추가할 순 없음(예시의 height속성 참고)

@@ -1,6 +1,8 @@
 ---
 title: Spring에서 Message를 관리하는법
 date: 2024-08-21T14:01:00
+tags:
+  - 스프링/개념
 ---
 
 # Spring의 Message관리 정의
@@ -66,7 +68,7 @@ ms.getMessage("hello", new Object[]{"Spring"}, null) // 안녕 Spring
 
 # ThymeLeaf에 적용
 
-[[표현식 종류#3. 메시지 표현식 - ` {...}`|ThymeLeaf의 메시지 표현식]]을 통해 정해놓은 문구를 코드를 입력하여 가져올 수 있음
+ThymeLeaf의 메시지 표현식(#{...})을 통해 정해놓은 문구를 코드를 입력하여 가져올 수 있음
 ```html
 <div th:text="#{hello.name(${user.name})}"></h2>
 ```

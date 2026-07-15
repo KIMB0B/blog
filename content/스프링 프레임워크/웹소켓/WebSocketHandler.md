@@ -1,10 +1,13 @@
 ---
 title: WebSocketHandler란?
 date: 2025-03-31T09:32:00
+tags:
+  - 스프링/웹소켓
 ---
+
 # WebSocketHandler 정의
 
-> Spring에서 제공하는 WebSocket을 처리하기 위해 WebSocketHandler 인터페이스<br>이를 구현하는 방식에 따라 `TextWebSocketHandler`와 `BinaryWebSocketHandler` 등으로 나뉩니다.
+> Spring에서 제공하는 WebSocket을 처리하기 위한 WebSocketHandler 인터페이스<br>이를 구현하는 방식에 따라 `TextWebSocketHandler`와 `BinaryWebSocketHandler` 등으로 나뉩니다.
 
 # WebSocketHandler 종류
 

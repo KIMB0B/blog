@@ -1,6 +1,8 @@
 ---
 title: "@Primary란?"
 date: 2024-08-20T23:31:00
+tags:
+  - 스프링/개념
 ---
 
 # @Primary의 정의

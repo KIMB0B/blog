@@ -1,7 +1,11 @@
 ---
 title: MQTT 알아보기 2편 - QOS, Broker
 date: 2022-03-08T14:48:00
+tags:
+  - 네트워크
+  - MQTT
 ---
+
 ![](https://blog.kakaocdn.net/dn/034Cl/btrvbeIjplf/BavUdHa2uQSRvzWKvDoYZk/img.png)
 
 지난시간엔 MQTT에 대한 기본적인것과 Public, Subscribe, Topic에 대해 알아보았다. 기억이 나지 않는다면 1편을 다시 보도록 하자.
@@ -10,7 +14,7 @@ date: 2022-03-08T14:48:00
 
 # **QoS는 뭘까?**
 
-Broker에 대해 알아보기 전에 먼저 QoS에 대해 알아보자. QoS는 MQTT가 기본적으로 제공하는 기능으로 영어 약자다. 풀어서 말하면 Quality of System. 해석한 대로 서비스의 품질 단계를 설정할 수 있는 것이다.  
+Broker에 대해 알아보기 전에 먼저 QoS에 대해 알아보자. QoS는 MQTT가 기본적으로 제공하는 기능으로 영어 약자다. 풀어서 말하면 Quality of Service. 해석한 대로 서비스의 품질 단계를 설정할 수 있는 것이다.  
   
 단계는 3종류가 있고, 역시 컴공 공돌이가 만들어서 그런지 0부터 센다. 그래서 QoS0, QoS1, QoS2가 있다. 0부터 2로 갈 수록 더 확실하게 메시지를 전달하고, 대신에 부하가 더 많아진다.
 
@@ -64,7 +68,7 @@ Computer나 Server에서 MQTT전송을 해 줄 Broker 프로그램을 설치하�
 - Cloud 방식 혹은 설치 방식
 - 속도와 가격
 
-아직 모르는 것도 많고, 신경 쓸게 너무 많다. Cluster, Bridge는 여러 Broker들을 하나로 묶어서 사용하기 위한 것으로만 알고있으면 되고 자세한건 추후 설명하도록고, SSL, $SYS는 실습해보면서 설명하도록 하겠다. 연습용 실습을 하기 위해서라면 구글에 쳐서 나오는 것 중에 많이 나오는 거 쓰면 되지만 프로젝트를 진행한다면 하나하나 신경을 써야 한다.  
+아직 모르는 것도 많고, 신경 쓸게 너무 많다. Cluster, Bridge는 여러 Broker들을 하나로 묶어서 사용하기 위한 것으로만 알고있으면 되고 자세한건 추후 설명하도록 하고, SSL, $SYS는 실습해보면서 설명하도록 하겠다. 연습용 실습을 하기 위해서라면 구글에 쳐서 나오는 것 중에 많이 나오는 거 쓰면 되지만 프로젝트를 진행한다면 하나하나 신경을 써야 한다.  
   
 다행히도 MQTT 깃허브에 이와 관련해 정리된 문서가 있다.
 
@@ -113,7 +117,7 @@ Computer나 Server에서 MQTT전송을 해 줄 Broker 프로그램을 설치하�
 [Bevywise사 속도 테스트 자료](https://blog.kakaocdn.net/dn/bbtmXR/btrvngUrJXD/kVjRDXl4eN8YgBCWjiFi8K/tfile.pdf)
 
 그나마 찾은 자료는 Bevywise사에서 같은 환경으로 실험한 속도 테스트 자료이다.  
-Mosquitto, Bevywise MQTT Route, ActiveMQ, HiveMQ, VerrneMQ, EMQ X Broker들을 대상으로 실험한 수치이니 참고하면 좋을 듯하다.  
+Mosquitto, Bevywise MQTT Route, ActiveMQ, HiveMQ, VerneMQ, EMQ X Broker들을 대상으로 실험한 수치이니 참고하면 좋을 듯하다.  
   
 나는 결과적으로 실습을 위해 Mosquitto를 선택했다.
 
@@ -137,7 +141,7 @@ Mosquitto는 Cloud방식이 아니라 설치 방식이고, Cluster 외에 내가
 ---
 # **마치며**
 
-정리하자면 MQTT Broker는 메세지를 받아 그 메세지의 Topic을 구독한 Client에게 배달해주는 녀석이고, 얘는 깔아서 쓸 수도 있고, 설치해서 쓸 수도 있으며, Broker마다 지원되는게 다 달라서 잘 살펴보고 선택해야 한다는 것이다. 그리고 실습을 따라올 사람들은 Mosquitto를 사용하게 될 것이라는 것을 알고있으면 되겠다.  
+정리하자면 MQTT Broker는 메시지를 받아 그 메시지의 Topic을 구독한 Client에게 배달해주는 녀석이고, 얘는 클라우드로 쓸 수도 있고, 설치해서 쓸 수도 있으며, Broker마다 지원되는게 다 달라서 잘 살펴보고 선택해야 한다는 것이다. 그리고 실습을 따라올 사람들은 Mosquitto를 사용하게 될 것이라는 것을 알고있으면 되겠다.  
   
 다음엔 재미없는 얘기말고 실습을 해 보도록 하겠다. 우리는 Python을 사용해 MQTT를 써볼 예정이므로 Python에 MQTT를 컨트롤할 수 있는 PAHO 라이브러리에 대한 설명과 Mosquitto 설치 설명에 대한 글을 작성할 예정이다.  
 Python 설치하는 글 먼저 썼어야 하는데 어.... 안바쁘면 내일 써야겠다.

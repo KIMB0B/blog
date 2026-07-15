@@ -1,7 +1,10 @@
 ---
 title: Test 환경에서의 데이터베이스 연결 방법
 date: 2025-03-08T17:10:00
+tags:
+  - 스프링/DB연동
 ---
+
 # 직접 연결
 
 `test` 폴더 하위의 `resources/application.properties`에도 `spring.datasource.~` 설정을 추가해 줍니다.

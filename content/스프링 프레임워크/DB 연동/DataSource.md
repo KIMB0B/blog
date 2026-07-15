@@ -1,7 +1,10 @@
 ---
 title: DataSource란?
 date: 2025-02-28T19:01:00
+tags:
+  - 스프링/DB연동
 ---
+
 # DataSource의 필요성
 
 커넥션을 획득하는 방법은 DriverManager, [[Connection Pool]] 등 다양하게 있습니다.
@@ -72,4 +75,4 @@ size가 현재 10인 MyPool에서 getConnection()을 11번 해서 사이즈를 �
 ---
 # 장점
 
-DataSource를 사용하면서 Connection을 가져오는 가져오는 방식에 변경이 있어도 애플리케이션 로직에는 병경이 없도록 설계가 가능하기 때문에 `DI`와 `OCP`가 성립된 구현이 가능해집니다.
+DataSource를 사용하면서 Connection을 가져오는 방식에 변경이 있어도 애플리케이션 로직에는 변경이 없도록 설계가 가능하기 때문에 `DI`와 `OCP`가 성립된 구현이 가능해집니다.

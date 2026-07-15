@@ -1,6 +1,8 @@
 ---
 title: HttpSession이란?
 date: 2024-08-29T11:30:00
+tags:
+  - 스프링/개념
 ---
 
 # 세션이란?

@@ -1,7 +1,10 @@
 ---
 title: 스프링의 데이터 예외 추상화 (DataAccessException)
 date: 2025-03-06T13:06:00
+tags:
+  - 스프링/DB연동
 ---
+
 # DataAccessException의 정의
 
 > 데이터 접근 중 발생하는 예외를 처리하기 위해 Spring에서 제공하는 런타임 예외

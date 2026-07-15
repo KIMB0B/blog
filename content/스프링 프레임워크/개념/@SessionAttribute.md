@@ -1,7 +1,10 @@
 ---
 title: "@SessionAttribute란?"
 date: 2024-08-29T23:08:00
+tags:
+  - 스프링/개념
 ---
+
 # @SessionAttribute의 정의
 
 > Spring에서 Session의 데이터를 더 간편하게 가져올 수 있도록 하는 기능입니다.
