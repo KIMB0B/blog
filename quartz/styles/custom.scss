@@ -45,6 +45,48 @@
   }
 }
 
+// ===== 기술 스택 분류별 표시 =====
+.home-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.7rem;
+
+  .stack-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    .stack-label {
+      flex: 0 0 3.2rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--gray);
+      letter-spacing: 0.02em;
+    }
+
+    .home-badges {
+      margin: 0;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .home-stack .stack-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+
+    .stack-label {
+      flex: none;
+    }
+
+    .home-badges {
+      justify-content: center;
+    }
+  }
+}
+
 // ===== 카테고리 카드 그리드 =====
 .home-cards {
   display: grid;
