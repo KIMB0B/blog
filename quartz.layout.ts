@@ -55,6 +55,8 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Backlinks(),
   ],
   afterBody: [
+    // 홈 화면에만 카테고리 카드를 자동 생성해서 표시
+    Component.ConditionalRender(Component.HomeCards(), isHomePage),
     // 홈 화면에만 최신 글 목록을 자동으로 표시
     Component.ConditionalRender(
       Component.RecentNotes({

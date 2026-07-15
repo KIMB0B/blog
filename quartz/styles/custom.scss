@@ -83,6 +83,17 @@ a.home-card {
     color: var(--darkgray);
     line-height: 1.45;
   }
+
+  .card-count {
+    margin-top: 0.45rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--secondary);
+  }
+}
+
+.home-cards-section h2 {
+  margin-top: 1.6rem;
 }
 
 // ===== GitHub 잔디 =====

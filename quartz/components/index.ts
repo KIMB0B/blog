@@ -22,6 +22,7 @@ import Breadcrumbs from "./Breadcrumbs"
 import Comments from "./Comments"
 import ConditionalRender from "./ConditionalRender"
 import HomeStats from "./HomeStats"
+import HomeCards from "./HomeCards"
 
 export {
   ArticleTitle,
@@ -48,4 +49,5 @@ export {
   Comments,
   ConditionalRender,
   HomeStats,
+  HomeCards,
 }

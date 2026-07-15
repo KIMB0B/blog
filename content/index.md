@@ -27,43 +27,6 @@ date: 2024-08-14T01:24:00
 > [!tip]- 이 블로그를 즐기는 법
 > 왼쪽의 **탐색기**로 전체 글을 둘러보거나, **검색(⌘/Ctrl + K)** 으로 원하는 키워드를 바로 찾아보세요.<br>각 글의 태그를 누르면 같은 주제의 글들을 모아볼 수 있습니다. 최신 글은 이 페이지 하단에 자동으로 정리됩니다.
 
-## 🗂️ 카테고리 둘러보기
-
-<div class="home-cards">
-  <a class="home-card" href="./스프링-프레임워크/">
-    <div class="card-title">☕️ 스프링 프레임워크</div>
-    <div class="card-desc">기본 강의 시리즈 · 개념 키워드 · DB 연동 · 웹소켓</div>
-  </a>
-  <a class="home-card" href="./코딩테스트/">
-    <div class="card-title">🧮 코딩테스트</div>
-    <div class="card-desc">알고리즘 문제 풀이와 코테 환경 구축</div>
-  </a>
-  <a class="home-card" href="./통신/">
-    <div class="card-title">📡 통신</div>
-    <div class="card-desc">MQTT · WebSocket 등 통신 프로토콜</div>
-  </a>
-  <a class="home-card" href="./Node.js/">
-    <div class="card-title">🟩 Node.js</div>
-    <div class="card-desc">TypeScript · 패키지 매니저</div>
-  </a>
-  <a class="home-card" href="./디자인-패턴/">
-    <div class="card-title">🧩 디자인 패턴</div>
-    <div class="card-desc">MVC · 의존성 주입(DI)</div>
-  </a>
-  <a class="home-card" href="./정보처리기사-실기/">
-    <div class="card-title">📝 정보처리기사 실기</div>
-    <div class="card-desc">기출 문제 풀이 · 핵심 요약 정리</div>
-  </a>
-  <a class="home-card" href="./내-프로젝트/">
-    <div class="card-title">🗃️ 내 프로젝트</div>
-    <div class="card-desc">자취생 커뮤니티(NestJS) · 와글(Spring Boot)</div>
-  </a>
-  <a class="home-card" href="./회고/">
-    <div class="card-title">📒 회고</div>
-    <div class="card-desc">부스트캠프 · 우아한테크코스 · 멋쟁이사자처럼</div>
-  </a>
-</div>
-
 ## ⭐ 추천 시리즈
 
 - [[스프링 프레임워크/기본 강의/index|스프링 기본 강의 시리즈]] — 객체지향부터 빈 스코프까지 순서대로 (15편)
