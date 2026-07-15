@@ -39,6 +39,8 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.TagList(),
+    // 홈 화면에만 블로그 통계 표시
+    Component.ConditionalRender(Component.HomeStats(), isHomePage),
   ],
   left: [
     Component.PageTitle(),

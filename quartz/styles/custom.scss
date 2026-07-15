@@ -1,3 +1,98 @@
 @use "./base.scss";
 
-// put your custom CSS here!
+// ===== 홈 프로필 카드 =====
+.home-profile {
+  display: flex;
+  gap: 1.3rem;
+  align-items: center;
+  padding: 1.2rem 1.4rem;
+  border: 1px solid var(--lightgray);
+  border-radius: 12px;
+  background: var(--light);
+  margin: 0.5rem 0 1rem;
+
+  .avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    border: 3px solid var(--secondary);
+    margin: 0;
+    flex-shrink: 0;
+  }
+
+  .intro p {
+    margin: 0.25rem 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-profile {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+// ===== 기술 스택 / 소셜 배지 =====
+.home-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin: 0.6rem 0 0;
+
+  img {
+    margin: 0;
+    display: inline-block;
+  }
+}
+
+// ===== 카테고리 카드 그리드 =====
+.home-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 0.8rem;
+  margin: 1rem 0 1.5rem;
+}
+
+a.home-card {
+  display: block;
+  text-decoration: none;
+  border: 1px solid var(--lightgray);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  background: var(--light);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: var(--secondary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .card-title {
+    font-weight: 700;
+    font-size: 1.02rem;
+    color: var(--dark);
+    margin-bottom: 0.3rem;
+  }
+
+  .card-desc {
+    font-size: 0.83rem;
+    color: var(--darkgray);
+    line-height: 1.45;
+  }
+}
+
+// ===== GitHub 잔디 =====
+.ghchart {
+  width: 100%;
+  margin: 0.4rem 0 0.8rem;
+  border-radius: 6px;
+}
+
+// 다크모드에서 잔디의 흰 배경 셀이 튀지 않도록 살짝 톤 다운
+[saved-theme="dark"] .ghchart {
+  filter: brightness(0.9);
+}
