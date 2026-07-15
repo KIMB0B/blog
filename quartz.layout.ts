@@ -6,6 +6,12 @@ import { QuartzPluginData } from "./quartz/plugins/vfile"
 // 홈(index) 페이지인지 확인
 const isHomePage = (props: QuartzComponentProps) => props.fileData.slug === "index"
 
+// 폴더 페이지인지 확인 (태그 페이지 제외)
+const isFolderPage = (props: QuartzComponentProps) => {
+  const slug = props.fileData.slug ?? ""
+  return slug.endsWith("/index") && !slug.startsWith("tags/")
+}
+
 // 최신 글 목록에서 index/목차/기출 답안 페이지 제외
 const isPost = (f: QuartzPluginData) => {
   const slug = f.slug ?? ""
@@ -86,7 +92,13 @@ export const defaultContentPageLayout: PageLayout = {
 
 // components for pages that display lists of pages  (e.g. tags or folders)
 export const defaultListPageLayout: PageLayout = {
-  beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
+  beforeBody: [
+    Component.Breadcrumbs(),
+    Component.ArticleTitle(),
+    Component.ContentMeta(),
+    // 폴더 페이지 상단에 하위 카테고리 카드 자동 표시
+    Component.ConditionalRender(Component.FolderNav(), isFolderPage),
+  ],
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
@@ -94,6 +106,6 @@ export const defaultListPageLayout: PageLayout = {
     Component.Darkmode(),
     Component.DesktopOnly(Component.Explorer()),
   ],
-  right: [],
+  right: [Component.Graph(), Component.Backlinks()],
   afterBody: [],
 }

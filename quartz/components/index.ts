@@ -23,6 +23,7 @@ import Comments from "./Comments"
 import ConditionalRender from "./ConditionalRender"
 import HomeStats from "./HomeStats"
 import HomeCards from "./HomeCards"
+import FolderNav from "./FolderNav"
 
 export {
   ArticleTitle,
@@ -50,4 +51,5 @@ export {
   ConditionalRender,
   HomeStats,
   HomeCards,
+  FolderNav,
 }

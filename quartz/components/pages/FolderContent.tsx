@@ -32,7 +32,9 @@ export default ((opts?: Partial<FolderContentOptions>) => {
       const folderParts = folderSlug.split(path.posix.sep)
       const fileParts = fileSlug.split(path.posix.sep)
       const isDirectChild = fileParts.length === folderParts.length + 1
-      return prefixed && isDirectChild
+      // 하위 폴더의 index 페이지는 상단 FolderNav 카드로 표시되므로 목록에서 제외
+      const isSubfolderIndex = (file.slug ?? "").endsWith("/index")
+      return prefixed && isDirectChild && !isSubfolderIndex
     })
     const cssClasses: string[] = fileData.frontmatter?.cssclasses ?? []
     const classes = ["popover-hint", ...cssClasses].join(" ")
